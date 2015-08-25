@@ -16,6 +16,7 @@
 		6B4E14A61B6956C700C4299C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B4E14A51B6956C700C4299C /* Images.xcassets */; };
 		6B4E14A91B6956C700C4299C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B4E14A71B6956C700C4299C /* LaunchScreen.xib */; };
 		6B4E14B51B6956C800C4299C /* Your_Monterey_PeninsulaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4E14B41B6956C800C4299C /* Your_Monterey_PeninsulaTests.swift */; };
+		6B5430581B8D035300FECABF /* ParseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5430571B8D035300FECABF /* ParseFactory.swift */; };
 		6BA594381B890B9A00BA348A /* BusinessListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA594371B890B9A00BA348A /* BusinessListTableViewController.swift */; };
 		6BA5943B1B890D4000BA348A /* BusinessListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5943A1B890D4000BA348A /* BusinessListCell.swift */; };
 		6BA5943E1B891FB000BA348A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5943D1B891FB000BA348A /* Data.swift */; };
@@ -50,6 +51,7 @@
 		6B4E14AE1B6956C800C4299C /* Your Monterey PeninsulaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Your Monterey PeninsulaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B4E14B31B6956C800C4299C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B4E14B41B6956C800C4299C /* Your_Monterey_PeninsulaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Your_Monterey_PeninsulaTests.swift; sourceTree = "<group>"; };
+		6B5430571B8D035300FECABF /* ParseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseFactory.swift; sourceTree = "<group>"; };
 		6BA594371B890B9A00BA348A /* BusinessListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListTableViewController.swift; sourceTree = "<group>"; };
 		6BA5943A1B890D4000BA348A /* BusinessListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListCell.swift; sourceTree = "<group>"; };
 		6BA5943D1B891FB000BA348A /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -109,10 +111,11 @@
 		6B4E14991B6956C700C4299C /* Your Monterey Peninsula */ = {
 			isa = PBXGroup;
 			children = (
+				6B5430571B8D035300FECABF /* ParseFactory.swift */,
 				6B4E149C1B6956C700C4299C /* AppDelegate.swift */,
+				6B4E14A21B6956C700C4299C /* Main.storyboard */,
 				6BD9DC1E1B7548EB00BA1EC3 /* Controllers */,
 				6BD9DC1D1B7548E000BA1EC3 /* Models */,
-				6B4E14A21B6956C700C4299C /* Main.storyboard */,
 				6B4E14A51B6956C700C4299C /* Images.xcassets */,
 				6B4E14A71B6956C700C4299C /* LaunchScreen.xib */,
 				6B4E149A1B6956C700C4299C /* Supporting Files */,
@@ -349,6 +352,7 @@
 				6BE6FB721B7D4BEF00DB7373 /* MapController+.swift in Sources */,
 				6BD9DC201B754BB000BA1EC3 /* Business.swift in Sources */,
 				6B3756791B87BBD600B907C0 /* CategoriesTableViewController.swift in Sources */,
+				6B5430581B8D035300FECABF /* ParseFactory.swift in Sources */,
 				6B37567E1B87C1D400B907C0 /* CategoryTableViewCell.swift in Sources */,
 				6B4E149D1B6956C700C4299C /* AppDelegate.swift in Sources */,
 				6B4E149F1B6956C700C4299C /* MapController.swift in Sources */,

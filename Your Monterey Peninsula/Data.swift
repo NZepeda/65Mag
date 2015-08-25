@@ -17,7 +17,7 @@ class Entry
         
         Business(title: "Vino Napoli Wine Bar", info: nil, description: nil, url: nil, facebook: nil, businessImage: UIImage(named:"napolli.jpg"), coordinate: nil, distanceFromUser: "0.8 mi"),
         
-        Business(title: "Caraccioli Cellars", info: nil, description: nil, url: nil, facebook: nil, businessImage: UIImage(named:"caraciolli-cellars.jpg"), coordinate: nil, distanceFromUser: "0.3 mi"),
+        Business(title: "Caraccioli Cellars", info: nil, description: nil, url: nil, facebook: nil, businessImage: UIImage(named:"caraccioli-cellars.jpg"), coordinate: nil, distanceFromUser: "0.3 mi"),
         
         Business(title: "Little Napoli", info: nil, description: nil, url: nil, facebook: nil, businessImage: UIImage(named:"little-napoli.jpg"), coordinate: nil, distanceFromUser: "0.2 mi"),
         

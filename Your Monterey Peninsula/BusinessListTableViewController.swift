@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toucan
 
 class BusinessListTableViewController: UITableViewController {
     
@@ -43,9 +44,14 @@ class BusinessListTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("BusinessCell", forIndexPath: indexPath) as! BusinessListCell
         
-        var image:UIImage = business_list_array[indexPath.row].businessImage!
+        var image:UIImage = business_list_array[indexPath.row].businessImage! as UIImage
+        
+        //resizing the image to make sure we have a decent fit
+        let resizedImage = Toucan.Resize.resizeImage(image, size: CGSize(width: 320.0, height: 135.0), fitMode: Toucan.Resize.FitMode.Clip)
+        
+        var businessName:String = business_list_array[indexPath.row].title as String
 
-        cell.loadCell(businessName: "Starbucks", offersSubHeader: "Offers 5 complimentary gifts", distanceFromUser: "0.7 mi", image: image)
+        cell.loadCell(businessName: businessName, offersSubHeader: "Offers 5 complimentary gifts", distanceFromUser: "0.7 mi", image: resizedImage)
 
         return cell
     }

@@ -27,7 +27,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePz-hp-bVR">
                                             <rect key="frame" x="279" y="59" width="42" height="21"/>
                                             <fontDescription key="fontDescription" name="MalayalamSangamMN-Bold" family="Malayalam Sangam MN" pointSize="25"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -72,14 +72,14 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fdu-G1-PiW" id="LZk-VZ-rTJ">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Et-FA-vLo">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Et-FA-vLo">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="135"/>
                                         </imageView>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d0f-lo-6Yz">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d0f-lo-6Yz">
                                             <rect key="frame" x="0.0" y="77" width="600" height="56"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Business" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ba-70-aE4">
-                                                    <rect key="frame" x="17" y="4" width="95" height="30"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Business" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5ba-70-aE4">
+                                                    <rect key="frame" x="17" y="4" width="474" height="30"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -90,7 +90,7 @@
                                                     <color key="textColor" red="0.76078431372549016" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbs-Ns-u7M">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbs-Ns-u7M">
                                                     <rect key="frame" x="543" y="17" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                                     <color key="textColor" red="0.76078431372549016" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
@@ -115,11 +115,11 @@
                                         <constraint firstAttribute="trailing" secondItem="5Et-FA-vLo" secondAttribute="trailing" id="1u0-EE-zbZ"/>
                                         <constraint firstAttribute="trailing" secondItem="d0f-lo-6Yz" secondAttribute="trailing" id="7te-rJ-Eju"/>
                                         <constraint firstItem="5Et-FA-vLo" firstAttribute="top" secondItem="LZk-VZ-rTJ" secondAttribute="top" id="CdR-7A-MbP"/>
-                                        <constraint firstAttribute="bottom" secondItem="5Et-FA-vLo" secondAttribute="bottom" constant="-1" id="cJh-5q-NnR"/>
+                                        <constraint firstAttribute="bottom" secondItem="5Et-FA-vLo" secondAttribute="bottom" id="cJh-5q-NnR"/>
                                         <constraint firstItem="d0f-lo-6Yz" firstAttribute="leading" secondItem="LZk-VZ-rTJ" secondAttribute="leading" id="fPa-pP-qgF"/>
                                         <constraint firstItem="d0f-lo-6Yz" firstAttribute="top" secondItem="LZk-VZ-rTJ" secondAttribute="top" constant="77" id="k8q-NA-X0q"/>
                                         <constraint firstItem="5Et-FA-vLo" firstAttribute="leading" secondItem="LZk-VZ-rTJ" secondAttribute="leading" id="pf9-ua-chQ"/>
-                                        <constraint firstAttribute="bottom" secondItem="d0f-lo-6Yz" secondAttribute="bottom" constant="1" id="wxb-u1-Xja"/>
+                                        <constraint firstAttribute="bottom" secondItem="d0f-lo-6Yz" secondAttribute="bottom" constant="2" id="wxb-u1-Xja"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
