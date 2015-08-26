@@ -8,6 +8,7 @@
 
 import Foundation
 import MapKit
+import Parse
 
 class Business: NSObject {
     
@@ -19,8 +20,9 @@ class Business: NSObject {
     let businessImage: UIImage?
     let coordinate: CLLocationCoordinate2D?
     let distanceFromUser: String?
+    let imageData: PFFile?
     
-    init(title: String?, info: String?, description: String?, url: String?, facebook: String?, businessImage:UIImage?, coordinate: CLLocationCoordinate2D?, distanceFromUser: String?){
+    init(title: String?, info: String?, description: String?, url: String?, facebook: String?, businessImage:UIImage?, coordinate: CLLocationCoordinate2D?, distanceFromUser: String?, imageData: PFFile){
         
         self.title = title!;
         self.info = info;
@@ -29,7 +31,8 @@ class Business: NSObject {
         self.facebook = facebook;
         self.businessImage = businessImage;
         self.coordinate = coordinate;
-        self.distanceFromUser = distanceFromUser!  
+        self.distanceFromUser = distanceFromUser!
+        self.imageData = imageData
         
         super.init();
     }

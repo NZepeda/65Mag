@@ -12,40 +12,30 @@ import Parse
 class ParseFactory: NSObject {
     
     
-    func getObjectsFromParse(type: String) -> Void{
-        
-        println("I got called!")
-        
-        let pfobject_array = [PFObject]()
-        
-        var query = PFQuery(className: "Business")
-        query.whereKey("businessType", equalTo: type)
-        
-        query.findObjectsInBackgroundWithBlock { (results: [AnyObject]?, error: NSError?) -> Void in
-            if error != nil{
-                //handle error here
-                println("error: \(error)")
-            }
-            else{
-                println(results!)
-            }
-        }
-    }
-    
     func PFObjectToModelConverter(array_from_parse: NSArray) -> NSArray{
         
-        let business_array = [Business]()
+        var business_array = [Business]()
         
         for business in array_from_parse{
             
             //convert PFObject into a business model object
+            print(business["name"])
+            let title: String = business["name"] as! String
+            let info: String = business["description"] as! String
+            let coordinate = CLLocationCoordinate2DMake(36.554075, -121.923281)
+            var businessImage = UIImage(named:"asilomar.jpg")
+            let imageData: PFFile = business["image"] as! PFFile
+           
             
-            var new_business: Business = Business(title: <#String?#>, info: <#String?#>, description: <#String?#>, url: <#String?#>, facebook: <#String?#>, businessImage: <#UIImage?#>, coordinate: <#CLLocationCoordinate2D?#>, distanceFromUser: <#String?#>)
+            var new_business: Business = Business(title: title, info: info, description: "some description", url: nil, facebook: nil, businessImage: businessImage, coordinate: coordinate, distanceFromUser: "0.3 mi", imageData: imageData)
+            
+            business_array.append(new_business)
             
         }
         
         return business_array
         
     }
+    
    
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class CategoriesTableViewController: UITableViewController {
     
@@ -72,29 +73,36 @@ class CategoriesTableViewController: UITableViewController {
             if let destination = segue.destinationViewController as? BusinessListTableViewController{
                 
                 if let cellIndex = tableView.indexPathForSelectedRow()?.row{
-                    var businesslist = Entry()
                     
+                    var businesslist = Entry() //for testing!
+                    
+                    var query = PFQuery(className:"Business")
+                    query.whereKey("businesType", equalTo: "Restaurants")
+                    
+                    
+                    //Individual cases for when each cell is pressed
                     switch cellIndex{
                     case 0:
-                        destination.business_list_array = businesslist.getShopping() as! [(Business)]
+                        //destination.business_list_array = businesslist.getShopping() as! [(Business)]
                         break
                     case 1:
-                        destination.business_list_array = businesslist.getWineTasting() as! [(Business)]
+                        //destination.business_list_array = businesslist.getWineTasting() as! [(Business)]
                         break
                     case 2:
-                        destination.business_list_array = businesslist.getBeaches() as! [(Business)]
+                        destination.type_of_business_to_be_displayed = "Beach"
                         break
                     case 3:
-                        factory.getObjectsFromParse("Restaurant")
+                        destination.type_of_business_to_be_displayed = "Restaurant"
                         break
                     default:
+                        
                         var array:NSMutableArray = []
                         
-                        array.addObjectsFromArray(businesslist.getShopping() as [AnyObject])
-                        array.addObjectsFromArray(businesslist.getWineTasting() as [AnyObject])         ///TESTING ONLY *DELETE*
-                        array.addObjectsFromArray(businesslist.getBeaches() as [AnyObject])
-                        
-                        destination.business_list_array = array.copy() as! [(Business)]
+//                        array.addObjectsFromArray(businesslist.getShopping() as [AnyObject])
+//                        array.addObjectsFromArray(businesslist.getWineTasting() as [AnyObject])         ///TESTING ONLY *DELETE*
+//                        array.addObjectsFromArray(businesslist.getBeaches() as [AnyObject])
+//                        
+//                        destination.business_list_array = array.copy() as! [(Business)]
                         
                     }
                     

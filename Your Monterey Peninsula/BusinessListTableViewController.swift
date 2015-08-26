@@ -8,14 +8,20 @@
 
 import UIKit
 import Toucan
+import Parse
 
 class BusinessListTableViewController: UITableViewController {
     
     var business_list_array = [Business]() //our businesslist
+    var type_of_business_to_be_displayed: String = ""
 
+    let factory = ParseFactory()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        println(business_list_array)
+        getBusinesses(type_of_business_to_be_displayed)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -43,6 +49,9 @@ class BusinessListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("BusinessCell", forIndexPath: indexPath) as! BusinessListCell
+        let imageData = business_list_array[indexPath.row].imageData! as PFFile
+
+        
         
         var image:UIImage = business_list_array[indexPath.row].businessImage! as UIImage
         
@@ -56,42 +65,6 @@ class BusinessListTableViewController: UITableViewController {
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     /*
     // MARK: - Navigation
 
@@ -102,4 +75,27 @@ class BusinessListTableViewController: UITableViewController {
     }
     */
 
+    //MARK: Helper Methods
+    
+    func getBusinesses(type: String){
+        var query = PFQuery(className: "Business")
+        var mutableCopyArray: NSMutableArray = []
+        query.whereKey("businessType", equalTo: type_of_business_to_be_displayed)
+        
+        query.cachePolicy = PFCachePolicy.NetworkElseCache //access's network, if its not available, check cache
+        
+        
+        query.findObjectsInBackgroundWithBlock { (results: [AnyObject]?, error: NSError?) -> Void in
+            
+            if error != nil{
+                println(error)
+            }
+            else{
+                
+                self.business_list_array = self.factory.PFObjectToModelConverter(results!) as! [(Business)]
+                self.tableView.reloadData()
+            }
+            
+        }
+    }
 }
