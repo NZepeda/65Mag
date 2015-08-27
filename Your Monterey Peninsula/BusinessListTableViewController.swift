@@ -93,7 +93,6 @@ class BusinessListTableViewController: UITableViewController {
             else{
                 
                 self.business_list_array = results as! [(PFObject)]
-                println(self.business_list_array)
                 self.tableView.reloadData()
             }
             
