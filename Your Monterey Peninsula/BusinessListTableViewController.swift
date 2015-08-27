@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import Toucan
+import Parse
 
 class BusinessListTableViewController: UITableViewController {
     
-    var business_list_array = [Business]() //our businesslist
+    var business_list_array = [PFObject]() //our businesslist
+    var type_of_business_to_be_displayed: String = "" //This is the variable used to determine what type of business we will pull from parse
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        getBusinesses(type_of_business_to_be_displayed)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -43,49 +48,23 @@ class BusinessListTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("BusinessCell", forIndexPath: indexPath) as! BusinessListCell
         
-        var image:UIImage = business_list_array[indexPath.row].businessImage!
-
-        cell.loadCell(businessName: "Starbucks", offersSubHeader: "Offers 5 complimentary gifts", distanceFromUser: "0.7 mi", image: image)
+        cell.businessName.text = business_list_array[indexPath.row]["name"] as? String
+        cell.offersLabel.text = business_list_array[indexPath.row]["address"] as? String
+        cell.distanceLabel.text = "0.5 mi"
+        
+        //get image
+        var imageData = business_list_array[indexPath.row]["image"] as! PFFile
+        imageData.getDataInBackgroundWithBlock { (data, error) -> Void in
+            
+            var image:UIImage = UIImage(data: data!)!
+            let resizedImage = Toucan.Resize.resizeImage(image, size: CGSize(width: 320.0, height: 150.0), fitMode: Toucan.Resize.FitMode.Clip)
+            
+            cell.businessImage.image = resizedImage
+        }
 
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     /*
     // MARK: - Navigation
 
@@ -96,4 +75,27 @@ class BusinessListTableViewController: UITableViewController {
     }
     */
 
+    //MARK: Helper Methods
+    
+    func getBusinesses(type: String){
+        var query = PFQuery(className: "Business")
+        var mutableCopyArray: NSMutableArray = []
+        query.whereKey("businessType", equalTo: type_of_business_to_be_displayed)
+        
+        query.cachePolicy = PFCachePolicy.NetworkElseCache //access's network, if its not available, check cache
+        
+        
+        query.findObjectsInBackgroundWithBlock { (results: [AnyObject]?, error: NSError?) -> Void in
+            
+            if error != nil{
+                println(error)
+            }
+            else{
+                
+                self.business_list_array = results as! [(PFObject)]
+                self.tableView.reloadData()
+            }
+            
+        }
+    }
 }

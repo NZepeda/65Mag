@@ -23,6 +23,8 @@ class BusinessListCell: UITableViewCell {
     
     func loadCell(#businessName: String, offersSubHeader: String, distanceFromUser: String, image: UIImage){
         
+        self.businessName.adjustsFontSizeToFitWidth = true
+        
         self.businessName.text = businessName
         self.offersLabel.text = offersSubHeader
         self.distanceLabel.text = distanceFromUser
