@@ -12,15 +12,13 @@ import Parse
 
 class BusinessListTableViewController: UITableViewController {
     
-    var business_list_array = [Business]() //our businesslist
-    var type_of_business_to_be_displayed: String = ""
+    var business_list_array = [PFObject]() //our businesslist
+    var type_of_business_to_be_displayed: String = "" //This is the variable used to determine what type of business we will pull from parse
 
-    let factory = ParseFactory()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        println(business_list_array)
         getBusinesses(type_of_business_to_be_displayed)
         
         // Uncomment the following line to preserve selection between presentations
@@ -49,18 +47,20 @@ class BusinessListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("BusinessCell", forIndexPath: indexPath) as! BusinessListCell
-        let imageData = business_list_array[indexPath.row].imageData! as PFFile
-
         
+        cell.businessName.text = business_list_array[indexPath.row]["name"] as? String
+        cell.offersLabel.text = business_list_array[indexPath.row]["address"] as? String
+        cell.distanceLabel.text = "0.5 mi"
         
-        var image:UIImage = business_list_array[indexPath.row].businessImage! as UIImage
-        
-        //resizing the image to make sure we have a decent fit
-        let resizedImage = Toucan.Resize.resizeImage(image, size: CGSize(width: 320.0, height: 135.0), fitMode: Toucan.Resize.FitMode.Clip)
-        
-        var businessName:String = business_list_array[indexPath.row].title as String
-
-        cell.loadCell(businessName: businessName, offersSubHeader: "Offers 5 complimentary gifts", distanceFromUser: "0.7 mi", image: resizedImage)
+        //get image
+        var imageData = business_list_array[indexPath.row]["image"] as! PFFile
+        imageData.getDataInBackgroundWithBlock { (data, error) -> Void in
+            
+            var image:UIImage = UIImage(data: data!)!
+            let resizedImage = Toucan.Resize.resizeImage(image, size: CGSize(width: 320.0, height: 150.0), fitMode: Toucan.Resize.FitMode.Clip)
+            
+            cell.businessImage.image = resizedImage
+        }
 
         return cell
     }
@@ -92,7 +92,8 @@ class BusinessListTableViewController: UITableViewController {
             }
             else{
                 
-                self.business_list_array = self.factory.PFObjectToModelConverter(results!) as! [(Business)]
+                self.business_list_array = results as! [(PFObject)]
+                println(self.business_list_array)
                 self.tableView.reloadData()
             }
             
