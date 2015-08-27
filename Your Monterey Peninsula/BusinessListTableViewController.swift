@@ -93,9 +93,40 @@ class BusinessListTableViewController: UITableViewController {
             else{
                 
                 self.business_list_array = results as! [(PFObject)]
+                self.getGeoLocationIfCoordinatesAreNil()
                 self.tableView.reloadData()
             }
             
         }
     }
+    
+    func getGeoLocationIfCoordinatesAreNil(){
+        
+        
+        for business in business_list_array{
+            if business["geoLocation"] == nil{
+                
+                var address = business["address"] as! String
+                var geoCoder = CLGeocoder()
+                
+                geoCoder.geocodeAddressString(address, completionHandler: { (coordinates: [AnyObject]!, error: NSError?) -> Void in
+                    
+                    if let placemark = coordinates?[0] as? CLPlacemark {
+                        var new_coordinate: PFGeoPoint = PFGeoPoint(latitude: placemark.location.coordinate.latitude, longitude: placemark.location.coordinate.longitude)
+                        business["geoLocation"] = new_coordinate
+                        
+                        business.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
+                            
+                        })
+                      
+                    }
+        
+                })
+                
+            }
+        }
+        
+    }
+    
+    
 }
