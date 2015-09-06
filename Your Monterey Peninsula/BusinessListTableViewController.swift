@@ -1,28 +1,21 @@
-//
-//  BusinessListTableViewController.swift
-//  Your Monterey Peninsula
-//
-//  Created by Nestor Zepeda on 8/22/15.
-//  Copyright (c) 2015 NestorZepeda. All rights reserved.
-//
+/* MAJOR THING TO DO HERE STILL IS HANDLE CASE WHERE USER LOCATION IS NOT ENABLED*/
 
 import UIKit
+import CoreLocation
 import Toucan
 import Parse
 
-class BusinessListTableViewController: UITableViewController {
+class BusinessListTableViewController: UITableViewController, CLLocationManagerDelegate {
     
     var business_list_array = [PFObject]() //our businesslist
     var type_of_business_to_be_displayed: String = "" //This is the variable used to determine what type of business we will pull from parse
+    var userLocation: CLLocation? = nil
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        println(userLocation)
         getBusinesses(type_of_business_to_be_displayed)
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
     }
 
@@ -50,7 +43,14 @@ class BusinessListTableViewController: UITableViewController {
         
         cell.businessName.text = business_list_array[indexPath.row]["name"] as? String
         cell.offersLabel.text = business_list_array[indexPath.row]["address"] as? String
-        cell.distanceLabel.text = "0.5 mi"
+        
+        
+        /*GET DISTANCE BETWEEN USER AND BUSINESS */
+        var point:PFGeoPoint = (business_list_array[indexPath.row]["geoLocation"] as? PFGeoPoint)!
+        let loc = CLLocation(latitude: point.latitude, longitude: point.longitude)
+        cell.distanceLabel.text = distanceFromBusiness(loc)
+        
+        /* DISTANCE ENDS HERE */
         
         //get image
         var imageData = business_list_array[indexPath.row]["image"] as! PFFile
@@ -100,8 +100,9 @@ class BusinessListTableViewController: UITableViewController {
         }
     }
     
+    /* This function gets the coordinates of the restaurant based on the 
+    address in the DB and updates the DB accordingly*/
     func getGeoLocationIfCoordinatesAreNil(){
-        
         
         for business in business_list_array{
             if business["geoLocation"] == nil{
@@ -125,6 +126,15 @@ class BusinessListTableViewController: UITableViewController {
                 
             }
         }
+        
+    }
+    
+    //gets the distanc between you and the business
+    func distanceFromBusiness(businessLocation: CLLocation) -> String{
+        
+        let distance = businessLocation.distanceFromLocation(userLocation)
+        let distanceString = String(format:"%.1f mi", distance / 1608.344)
+        return distanceString
         
     }
     
