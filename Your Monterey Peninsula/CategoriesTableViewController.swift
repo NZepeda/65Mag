@@ -85,12 +85,6 @@ class CategoriesTableViewController: UITableViewController, CLLocationManagerDel
                 
                 if let cellIndex = tableView.indexPathForSelectedRow()?.row{
                     
-                    var businesslist = Entry() //for testing!
-                    
-                    var query = PFQuery(className:"Business")
-                    query.whereKey("businesType", equalTo: "Restaurants")
-                    
-                    
                     //Individual cases for when each cell is pressed
                     switch cellIndex{
                     case 0:

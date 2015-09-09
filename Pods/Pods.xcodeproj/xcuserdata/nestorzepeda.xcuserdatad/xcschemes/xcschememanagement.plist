@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PageMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,17 +37,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4A9B46B469A5F7C61E40E41987897BCE</key>
+		<key>B0884BCF4E746620C9BF5644250FB016</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F31C71665EC520E179DB221AE911704</key>
+		<key>E6AFBA79329F8C89A1A16C06FBBA7C22</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E9FF111E2EF95D31EA94F8B64163F9C8</key>
+		<key>E87A71FCFB1AE23932876B93EC5D8089</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F26CBD3F35A56484D91B0A993004A62C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

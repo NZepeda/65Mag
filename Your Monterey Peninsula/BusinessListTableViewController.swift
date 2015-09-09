@@ -10,11 +10,11 @@ class BusinessListTableViewController: UITableViewController, CLLocationManagerD
     var business_list_array = [PFObject]() //our businesslist
     var type_of_business_to_be_displayed: String = "" //This is the variable used to determine what type of business we will pull from parse
     var userLocation: CLLocation? = nil
+    var loc: CLLocation? = nil
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println(userLocation)
         getBusinesses(type_of_business_to_be_displayed)
 
     }
@@ -47,8 +47,8 @@ class BusinessListTableViewController: UITableViewController, CLLocationManagerD
         
         /*GET DISTANCE BETWEEN USER AND BUSINESS */
         var point:PFGeoPoint = (business_list_array[indexPath.row]["geoLocation"] as? PFGeoPoint)!
-        let loc = CLLocation(latitude: point.latitude, longitude: point.longitude)
-        cell.distanceLabel.text = distanceFromBusiness(loc)
+        loc = CLLocation(latitude: point.latitude, longitude: point.longitude)
+        cell.distanceLabel.text = distanceFromBusiness(loc!)
         
         /* DISTANCE ENDS HERE */
         
@@ -65,15 +65,29 @@ class BusinessListTableViewController: UITableViewController, CLLocationManagerD
         return cell
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        
+        //segue
+        let listToInfo = "listToInfoSegue"
+        
+        if segue.identifier == listToInfo{
+            if let destination = segue.destinationViewController as? BusinessInfoViewController{
+                
+                if let cellIndex = tableView.indexPathForSelectedRow()?.row{
+                    
+                    destination.business = business_list_array[cellIndex]
+                    destination.distanceFromUser = distanceFromBusiness(loc!)
+                }
+                
+            }
+        }
+
     }
-    */
+
 
     //MARK: Helper Methods
     

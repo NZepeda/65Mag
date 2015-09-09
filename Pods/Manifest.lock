@@ -1,15 +1,18 @@
 PODS:
   - Bolts/Tasks (1.2.0)
+  - PageMenu (1.2.8)
   - Parse (1.7.5.3):
     - Bolts/Tasks (>= 1.2.0)
   - Toucan (0.4.2)
 
 DEPENDENCIES:
+  - PageMenu
   - Parse (~> 1.3)
   - Toucan (~> 0.4)
 
 SPEC CHECKSUMS:
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
+  PageMenu: 703e82e173f54a4626ab88fcdca7703ee52e0cbe
   Parse: 373adbb1ad2e34d383542c3b28f678c49ebe4881
   Toucan: ed60ee997d6fad44712e36f6ea07a0b6dec01cac
 

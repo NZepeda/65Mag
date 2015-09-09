@@ -86,18 +86,18 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Offers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsD-ni-gZT">
                                                     <rect key="frame" x="17" y="35" width="54" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.76078431372549016" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbs-Ns-u7M">
                                                     <rect key="frame" x="543" y="17" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.76078431372549016" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.37" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="SsD-ni-gZT" firstAttribute="top" secondItem="5ba-70-aE4" secondAttribute="bottom" constant="1" id="1ZN-Ga-g4z"/>
                                                 <constraint firstItem="5ba-70-aE4" firstAttribute="leading" secondItem="d0f-lo-6Yz" secondAttribute="leading" constant="17" id="1ge-Kn-S8S"/>
@@ -127,6 +127,7 @@
                                     <outlet property="businessName" destination="5ba-70-aE4" id="I9k-2m-PC8"/>
                                     <outlet property="distanceLabel" destination="dbs-Ns-u7M" id="Jsi-tU-idP"/>
                                     <outlet property="offersLabel" destination="SsD-ni-gZT" id="72F-1z-3Fz"/>
+                                    <segue destination="Ked-pR-8Yh" kind="show" identifier="listToInfoSegue" id="1o4-cw-Fn4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -139,6 +140,82 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CN2-w7-T5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2246" y="-380"/>
+        </scene>
+        <!--Business Info View Controller-->
+        <scene sceneID="gwP-tu-maY">
+            <objects>
+                <viewController id="Ked-pR-8Yh" customClass="BusinessInfoViewController" customModule="Your_Monterey_Peninsula" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ae6-ju-phz"/>
+                        <viewControllerLayoutGuide type="bottom" id="YPl-98-Lw5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hYe-O3-84S">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ftA-IG-s8v">
+                                <rect key="frame" x="0.0" y="64" width="600" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="43g-Fl-qjy"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JWt-gD-mXA">
+                                <rect key="frame" x="0.0" y="158" width="600" height="56"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Business" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNh-wj-jwn">
+                                        <rect key="frame" x="13" y="8" width="88" height="28"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="23"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Offers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJm-79-sLv">
+                                        <rect key="frame" x="13" y="35" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="0.76078431372549016" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhC-un-n1v">
+                                        <rect key="frame" x="550" y="17" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="0.76078431372549016" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="qNh-wj-jwn" firstAttribute="leading" secondItem="JWt-gD-mXA" secondAttribute="leading" constant="13" id="2jf-SH-cny"/>
+                                    <constraint firstItem="KJm-79-sLv" firstAttribute="leading" secondItem="JWt-gD-mXA" secondAttribute="leading" constant="13" id="BN2-oc-ACw"/>
+                                    <constraint firstAttribute="bottom" secondItem="qhC-un-n1v" secondAttribute="bottom" constant="18" id="Ju0-3R-fDP"/>
+                                    <constraint firstAttribute="height" constant="56" id="ViT-JV-WCL"/>
+                                    <constraint firstAttribute="bottom" secondItem="qNh-wj-jwn" secondAttribute="bottom" constant="20" id="eat-Wh-pXC"/>
+                                    <constraint firstAttribute="bottom" secondItem="KJm-79-sLv" secondAttribute="bottom" id="g0W-XC-JdS"/>
+                                    <constraint firstItem="qNh-wj-jwn" firstAttribute="top" secondItem="JWt-gD-mXA" secondAttribute="top" constant="8" id="ij9-X1-Bmw"/>
+                                    <constraint firstAttribute="trailing" secondItem="qhC-un-n1v" secondAttribute="trailing" constant="8" id="mJR-bk-w7W"/>
+                                    <constraint firstItem="KJm-79-sLv" firstAttribute="top" secondItem="JWt-gD-mXA" secondAttribute="top" constant="35" id="wGr-JG-mze"/>
+                                    <constraint firstItem="qhC-un-n1v" firstAttribute="top" secondItem="JWt-gD-mXA" secondAttribute="top" constant="17" id="xzt-Uf-7v3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ftA-IG-s8v" secondAttribute="trailing" id="4Ee-32-7EY"/>
+                            <constraint firstItem="ftA-IG-s8v" firstAttribute="leading" secondItem="hYe-O3-84S" secondAttribute="leading" id="5bV-8G-3GY"/>
+                            <constraint firstAttribute="trailing" secondItem="JWt-gD-mXA" secondAttribute="trailing" id="VXw-Bd-apk"/>
+                            <constraint firstItem="JWt-gD-mXA" firstAttribute="leading" secondItem="hYe-O3-84S" secondAttribute="leading" id="Y2K-Wf-rGO"/>
+                            <constraint firstItem="ftA-IG-s8v" firstAttribute="top" secondItem="ae6-ju-phz" secondAttribute="bottom" id="sMf-cI-23r"/>
+                            <constraint firstItem="JWt-gD-mXA" firstAttribute="bottom" secondItem="ftA-IG-s8v" secondAttribute="bottom" id="viJ-M9-DXS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="businessImage" destination="ftA-IG-s8v" id="COh-PS-iUk"/>
+                        <outlet property="businessName" destination="qNh-wj-jwn" id="BIV-nk-xb4"/>
+                        <outlet property="distance" destination="qhC-un-n1v" id="QGt-ge-V83"/>
+                        <outlet property="offers" destination="KJm-79-sLv" id="FiY-EF-HEA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gZg-bg-7f0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2952" y="-380"/>
         </scene>
         <!--Map Controller-->
         <scene sceneID="hNz-n2-bh7">
