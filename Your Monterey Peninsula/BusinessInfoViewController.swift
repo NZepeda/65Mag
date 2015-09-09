@@ -11,7 +11,7 @@ import Parse
 import Toucan
 import PageMenu
 
-class BusinessInfoViewController: UIViewController {
+class BusinessInfoViewController: UIViewController, InfoChildViewControllerDelegate {
 
     @IBOutlet var businessImage: UIImageView!
     @IBOutlet var businessName: UILabel!
@@ -23,6 +23,8 @@ class BusinessInfoViewController: UIViewController {
     @IBOutlet var infoView: UIView!
     @IBOutlet var giftsView: UIView!
     
+    
+    
     var business: PFObject!
     var distanceFromUser: String!
     
@@ -32,6 +34,7 @@ class BusinessInfoViewController: UIViewController {
         super.viewDidLoad()
         infoView.hidden = false
         giftsView.hidden = true
+        ///InfoChildViewController.delegate = self;
         
         setUpPage()
        
@@ -61,15 +64,23 @@ class BusinessInfoViewController: UIViewController {
         
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        //segue
+        let listToInfo = "InfoSegue"
+        
+        if segue.identifier == listToInfo{
+          let infoChildVC = segue.destinationViewController as! InfoChildViewController
+            infoChildVC.delegate = self
+            infoChildVC.object = business
+        }
     }
-    */
+    
+    
     @IBAction func tabChanged(sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex
         {
@@ -82,6 +93,11 @@ class BusinessInfoViewController: UIViewController {
         default:
             break;
         }
+    }
+    
+    // MARK: - Delegation
+    func objectPasser(businessObject: PFObject) {
+        
     }
 
 }

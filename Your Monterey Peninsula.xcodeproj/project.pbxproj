@@ -101,7 +101,7 @@
 		6B3CC1671BA0DFA000061484 /* ChildControllers */ = {
 			isa = PBXGroup;
 			children = (
-				6BE3686D1B9CEDD800769FC3 /* BusinessInfoViewController.swift */,
+				6B3CC1651BA0DF8E00061484 /* InfoChildViewController.swift */,
 			);
 			name = ChildControllers;
 			sourceTree = "<group>";
@@ -209,7 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				6B3CC1671BA0DFA000061484 /* ChildControllers */,
-				6B3CC1651BA0DF8E00061484 /* InfoChildViewController.swift */,
+				6BE3686D1B9CEDD800769FC3 /* BusinessInfoViewController.swift */,
 			);
 			name = BusinessInfo;
 			sourceTree = "<group>";

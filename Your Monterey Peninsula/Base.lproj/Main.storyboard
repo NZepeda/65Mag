@@ -198,7 +198,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXx-b1-Gwu">
                                 <rect key="frame" x="16" y="256" width="568" height="229"/>
                                 <connections>
-                                    <segue destination="qOF-yU-9bV" kind="embed" id="oWd-eX-M67"/>
+                                    <segue destination="qOF-yU-9bV" kind="embed" identifier="InfoSegue" id="oWd-eX-M67"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4EU-eD-29u">

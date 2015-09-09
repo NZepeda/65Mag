@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import Parse
 
-
+protocol InfoChildViewControllerDelegate{
+    
+}
 
 class InfoChildViewController: UIViewController {
     
+    var delegate: InfoChildViewControllerDelegate?
+    var object: PFObject?
+    
     @IBOutlet var infoText: UITextView!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //var description: String? = object["description"] as! String
+        
+        infoText.text = description
 
         // Do any additional setup after loading the view.
     }
