@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import Toucan
+import PageMenu
 
 class BusinessInfoViewController: UIViewController {
 
@@ -17,14 +18,25 @@ class BusinessInfoViewController: UIViewController {
     @IBOutlet var offers: UILabel!
     @IBOutlet var distance: UILabel!
     
+    @IBOutlet var segmentedControl: UISegmentedControl!
+    
+    @IBOutlet var infoView: UIView!
+    @IBOutlet var giftsView: UIView!
+    
     var business: PFObject!
     var distanceFromUser: String!
     
+    var PageMenu: CAPSPageMenu?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        infoView.hidden = false
+        giftsView.hidden = true
+        
         setUpPage()
        
         // Do any additional setup after loading the view.
+        var controllerArray : [UIViewController] = []
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,5 +70,18 @@ class BusinessInfoViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func tabChanged(sender: UISegmentedControl) {
+        switch segmentedControl.selectedSegmentIndex
+        {
+        case 0:
+            infoView.hidden = false
+            giftsView.hidden = true
+        case 1:
+            infoView.hidden = true
+            giftsView.hidden = false
+        default:
+            break;
+        }
+    }
 
 }

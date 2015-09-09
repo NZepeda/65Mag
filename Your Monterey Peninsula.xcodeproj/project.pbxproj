@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6B3756791B87BBD600B907C0 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3756781B87BBD600B907C0 /* CategoriesTableViewController.swift */; };
 		6B37567E1B87C1D400B907C0 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B37567C1B87C1D400B907C0 /* CategoryTableViewCell.swift */; };
+		6B3CC1661BA0DF8E00061484 /* InfoChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3CC1651BA0DF8E00061484 /* InfoChildViewController.swift */; };
 		6B4E149D1B6956C700C4299C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4E149C1B6956C700C4299C /* AppDelegate.swift */; };
 		6B4E149F1B6956C700C4299C /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4E149E1B6956C700C4299C /* MapController.swift */; };
 		6B4E14A11B6956C700C4299C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4E14A01B6956C700C4299C /* SecondViewController.swift */; };
@@ -43,6 +44,7 @@
 		31E83DBDD134563A2FCD1079 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6B3756781B87BBD600B907C0 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		6B37567C1B87C1D400B907C0 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		6B3CC1651BA0DF8E00061484 /* InfoChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoChildViewController.swift; sourceTree = "<group>"; };
 		6B4E14971B6956C700C4299C /* Your Monterey Peninsula.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Your Monterey Peninsula.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B4E149B1B6956C700C4299C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B4E149C1B6956C700C4299C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,14 @@
 				11CD4C01EBA424C5A741509B /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		6B3CC1671BA0DFA000061484 /* ChildControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6BE3686D1B9CEDD800769FC3 /* BusinessInfoViewController.swift */,
+			);
+			name = ChildControllers;
 			sourceTree = "<group>";
 		};
 		6B4E148E1B6956C700C4299C = {
@@ -198,7 +208,8 @@
 		6BE3686C1B9CEDA900769FC3 /* BusinessInfo */ = {
 			isa = PBXGroup;
 			children = (
-				6BE3686D1B9CEDD800769FC3 /* BusinessInfoViewController.swift */,
+				6B3CC1671BA0DFA000061484 /* ChildControllers */,
+				6B3CC1651BA0DF8E00061484 /* InfoChildViewController.swift */,
 			);
 			name = BusinessInfo;
 			sourceTree = "<group>";
@@ -384,6 +395,7 @@
 				6B37567E1B87C1D400B907C0 /* CategoryTableViewCell.swift in Sources */,
 				6B4E149D1B6956C700C4299C /* AppDelegate.swift in Sources */,
 				6B4E149F1B6956C700C4299C /* MapController.swift in Sources */,
+				6B3CC1661BA0DF8E00061484 /* InfoChildViewController.swift in Sources */,
 				6BA594381B890B9A00BA348A /* BusinessListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
