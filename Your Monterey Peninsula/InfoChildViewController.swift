@@ -17,15 +17,24 @@ class InfoChildViewController: UIViewController {
     
     var delegate: InfoChildViewControllerDelegate?
     var object: PFObject?
+    var text: String?
+  
+    @IBOutlet var descriptionText: UITextView!
+    @IBOutlet var setterlabel: UILabel!
     
-    @IBOutlet var infoText: UITextView!
+    
+   
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //var description: String? = object["description"] as! String
+    
+        setterlabel.hidden = true
         
-        infoText.text = description
+        descriptionText.text = text
+        descriptionText.font = setterlabel.font
+        
+        //descriptionText.text = object["description"] as! String
 
         // Do any additional setup after loading the view.
     }

@@ -77,6 +77,8 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
           let infoChildVC = segue.destinationViewController as! InfoChildViewController
             infoChildVC.delegate = self
             infoChildVC.object = business
+            infoChildVC.text = business["description"] as! String
+            
         }
     }
     
