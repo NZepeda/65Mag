@@ -8,7 +8,7 @@
 
 import UIKit
 import Parse
-import Toucan
+import Bolts
 import PageMenu
 
 class BusinessInfoViewController: UIViewController, InfoChildViewControllerDelegate {
@@ -39,7 +39,6 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
         setUpPage()
        
         // Do any additional setup after loading the view.
-        var controllerArray : [UIViewController] = []
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,13 +52,13 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
         distance.text = distanceFromUser
         
         //get image
-        var imageData = business["image"] as! PFFile
+        let imageData = business["image"] as! PFFile
         imageData.getDataInBackgroundWithBlock { (data, error) -> Void in
             
-            var image:UIImage = UIImage(data: data!)!
-            let resizedImage = Toucan.Resize.resizeImage(image, size: CGSize(width: 320.0, height: 150.0), fitMode: Toucan.Resize.FitMode.Clip)
+            let image:UIImage = UIImage(data: data!)!
+//            let resizedImage = Toucan.Resize.resizeImage(image, size: CGSize(width: 320.0, height: 150.0), fitMode: Toucan.Resize.FitMode.Clip)
             
-            self.businessImage.image = resizedImage
+            self.businessImage.image = image
         }
         
     }
@@ -77,7 +76,7 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
           let infoChildVC = segue.destinationViewController as! InfoChildViewController
             infoChildVC.delegate = self
             infoChildVC.object = business
-            infoChildVC.text = business["description"] as! String
+            infoChildVC.text = business["description"] as? String
             
         }
     }

@@ -24,35 +24,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Toucan.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>43EF105167B35D7E9A338DF0E3BC5965</key>
+		<key>0DEB220D89279E0B9896556CE5F9EC7D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B0884BCF4E746620C9BF5644250FB016</key>
+		<key>4117C6FFAADBADB53AFC6668ECE7E26C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6AFBA79329F8C89A1A16C06FBBA7C22</key>
+		<key>818BB28525D3A54E4103E272D814B499</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E87A71FCFB1AE23932876B93EC5D8089</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F26CBD3F35A56484D91B0A993004A62C</key>
+		<key>9AEC4330448BD02C7A327406EBA29EF7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -18,12 +18,24 @@
 		6B4E14A91B6956C700C4299C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B4E14A71B6956C700C4299C /* LaunchScreen.xib */; };
 		6B4E14B51B6956C800C4299C /* Your_Monterey_PeninsulaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4E14B41B6956C800C4299C /* Your_Monterey_PeninsulaTests.swift */; };
 		6B5430581B8D035300FECABF /* ParseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5430571B8D035300FECABF /* ParseFactory.swift */; };
+		6B5ADB251BAA04F5006D2CB9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB231BAA04F5006D2CB9 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
+		6B5ADB261BAA04F5006D2CB9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB241BAA04F5006D2CB9 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
+		6B5ADB281BAA0576006D2CB9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB271BAA0576006D2CB9 /* AudioToolbox.framework */; };
+		6B5ADB2A1BAA0580006D2CB9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB291BAA0580006D2CB9 /* CFNetwork.framework */; };
+		6B5ADB2C1BAA0589006D2CB9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB2B1BAA0589006D2CB9 /* CoreGraphics.framework */; };
+		6B5ADB2E1BAA059D006D2CB9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB2D1BAA059D006D2CB9 /* QuartzCore.framework */; };
+		6B5ADB301BAA05A9006D2CB9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB2F1BAA05A9006D2CB9 /* Security.framework */; };
+		6B5ADB321BAA05B1006D2CB9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB311BAA05B1006D2CB9 /* StoreKit.framework */; };
+		6B5ADB341BAA05BC006D2CB9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB331BAA05BC006D2CB9 /* SystemConfiguration.framework */; };
+		6B5ADB361BAA05F0006D2CB9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB351BAA05F0006D2CB9 /* libz.tbd */; };
+		6B5ADB381BAA05FC006D2CB9 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB371BAA05FC006D2CB9 /* libsqlite3.tbd */; };
+		6B5ADB3A1BAA0606006D2CB9 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB391BAA0606006D2CB9 /* Accounts.framework */; };
+		6B5ADB3C1BAA060D006D2CB9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB3B1BAA060D006D2CB9 /* Social.framework */; };
 		6BA594381B890B9A00BA348A /* BusinessListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA594371B890B9A00BA348A /* BusinessListTableViewController.swift */; };
 		6BA5943B1B890D4000BA348A /* BusinessListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5943A1B890D4000BA348A /* BusinessListCell.swift */; };
 		6BA5943E1B891FB000BA348A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5943D1B891FB000BA348A /* Data.swift */; };
 		6BD9DC201B754BB000BA1EC3 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9DC1F1B754BB000BA1EC3 /* Business.swift */; };
 		6BE3686E1B9CEDD800769FC3 /* BusinessInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE3686D1B9CEDD800769FC3 /* BusinessInfoViewController.swift */; };
-		6BE6FB721B7D4BEF00DB7373 /* MapController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE6FB711B7D4BEF00DB7373 /* MapController+.swift */; };
 		6BEF0FDE1B98EE7300AD9FD3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEF0FDD1B98EE7300AD9FD3 /* CoreLocation.framework */; };
 		6BEF0FE01B98EE7D00AD9FD3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEF0FDF1B98EE7D00AD9FD3 /* MapKit.framework */; };
 		8222E8B992837C9540E4088E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FF6C1D36958D0D89BC26B3 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -57,12 +69,25 @@
 		6B4E14B31B6956C800C4299C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B4E14B41B6956C800C4299C /* Your_Monterey_PeninsulaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Your_Monterey_PeninsulaTests.swift; sourceTree = "<group>"; };
 		6B5430571B8D035300FECABF /* ParseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseFactory.swift; sourceTree = "<group>"; };
+		6B5ADB231BAA04F5006D2CB9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		6B5ADB241BAA04F5006D2CB9 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		6B5ADB271BAA0576006D2CB9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6B5ADB291BAA0580006D2CB9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6B5ADB2B1BAA0589006D2CB9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6B5ADB2D1BAA059D006D2CB9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6B5ADB2F1BAA05A9006D2CB9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6B5ADB311BAA05B1006D2CB9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		6B5ADB331BAA05BC006D2CB9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6B5ADB351BAA05F0006D2CB9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		6B5ADB371BAA05FC006D2CB9 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		6B5ADB391BAA0606006D2CB9 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		6B5ADB3B1BAA060D006D2CB9 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		6B5ADB3D1BAA0927006D2CB9 /* Your Monterey Peninsula-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Your Monterey Peninsula-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		6BA594371B890B9A00BA348A /* BusinessListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListTableViewController.swift; sourceTree = "<group>"; };
 		6BA5943A1B890D4000BA348A /* BusinessListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListCell.swift; sourceTree = "<group>"; };
 		6BA5943D1B891FB000BA348A /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		6BD9DC1F1B754BB000BA1EC3 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		6BE3686D1B9CEDD800769FC3 /* BusinessInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessInfoViewController.swift; sourceTree = "<group>"; };
-		6BE6FB711B7D4BEF00DB7373 /* MapController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapController+.swift"; sourceTree = "<group>"; };
 		6BEF0FDD1B98EE7300AD9FD3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6BEF0FDF1B98EE7D00AD9FD3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D4FF6C1D36958D0D89BC26B3 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,9 +98,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BEF0FE01B98EE7D00AD9FD3 /* MapKit.framework in Frameworks */,
+				6B5ADB3C1BAA060D006D2CB9 /* Social.framework in Frameworks */,
+				6B5ADB3A1BAA0606006D2CB9 /* Accounts.framework in Frameworks */,
+				6B5ADB381BAA05FC006D2CB9 /* libsqlite3.tbd in Frameworks */,
+				6B5ADB361BAA05F0006D2CB9 /* libz.tbd in Frameworks */,
+				6B5ADB341BAA05BC006D2CB9 /* SystemConfiguration.framework in Frameworks */,
+				6B5ADB321BAA05B1006D2CB9 /* StoreKit.framework in Frameworks */,
+				6B5ADB301BAA05A9006D2CB9 /* Security.framework in Frameworks */,
+				6B5ADB2E1BAA059D006D2CB9 /* QuartzCore.framework in Frameworks */,
 				6BEF0FDE1B98EE7300AD9FD3 /* CoreLocation.framework in Frameworks */,
+				6B5ADB2C1BAA0589006D2CB9 /* CoreGraphics.framework in Frameworks */,
+				6B5ADB2A1BAA0580006D2CB9 /* CFNetwork.framework in Frameworks */,
+				6B5ADB281BAA0576006D2CB9 /* AudioToolbox.framework in Frameworks */,
+				6BEF0FE01B98EE7D00AD9FD3 /* MapKit.framework in Frameworks */,
 				8222E8B992837C9540E4088E /* Pods.framework in Frameworks */,
+				6B5ADB251BAA04F5006D2CB9 /* Bolts.framework in Frameworks */,
+				6B5ADB261BAA04F5006D2CB9 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +167,7 @@
 		6B4E14991B6956C700C4299C /* Your Monterey Peninsula */ = {
 			isa = PBXGroup;
 			children = (
+				6B5ADB3D1BAA0927006D2CB9 /* Your Monterey Peninsula-Bridging-Header.h */,
 				6B5430571B8D035300FECABF /* ParseFactory.swift */,
 				6B4E149C1B6956C700C4299C /* AppDelegate.swift */,
 				6B4E14A21B6956C700C4299C /* Main.storyboard */,
@@ -218,7 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				6B4E149E1B6956C700C4299C /* MapController.swift */,
-				6BE6FB711B7D4BEF00DB7373 /* MapController+.swift */,
 			);
 			name = MapView;
 			sourceTree = "<group>";
@@ -226,6 +264,19 @@
 		D50E71569F2BA5A3F40C5749 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6B5ADB231BAA04F5006D2CB9 /* Bolts.framework */,
+				6B5ADB241BAA04F5006D2CB9 /* Parse.framework */,
+				6B5ADB3B1BAA060D006D2CB9 /* Social.framework */,
+				6B5ADB391BAA0606006D2CB9 /* Accounts.framework */,
+				6B5ADB371BAA05FC006D2CB9 /* libsqlite3.tbd */,
+				6B5ADB351BAA05F0006D2CB9 /* libz.tbd */,
+				6B5ADB331BAA05BC006D2CB9 /* SystemConfiguration.framework */,
+				6B5ADB311BAA05B1006D2CB9 /* StoreKit.framework */,
+				6B5ADB2F1BAA05A9006D2CB9 /* Security.framework */,
+				6B5ADB2D1BAA059D006D2CB9 /* QuartzCore.framework */,
+				6B5ADB2B1BAA0589006D2CB9 /* CoreGraphics.framework */,
+				6B5ADB291BAA0580006D2CB9 /* CFNetwork.framework */,
+				6B5ADB271BAA0576006D2CB9 /* AudioToolbox.framework */,
 				6BEF0FDF1B98EE7D00AD9FD3 /* MapKit.framework */,
 				6BEF0FDD1B98EE7300AD9FD3 /* CoreLocation.framework */,
 				D4FF6C1D36958D0D89BC26B3 /* Pods.framework */,
@@ -280,8 +331,9 @@
 		6B4E148F1B6956C700C4299C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = NestorZepeda;
 				TargetAttributes = {
 					6B4E14961B6956C700C4299C = {
@@ -388,7 +440,6 @@
 				6BA5943B1B890D4000BA348A /* BusinessListCell.swift in Sources */,
 				6BA5943E1B891FB000BA348A /* Data.swift in Sources */,
 				6B4E14A11B6956C700C4299C /* SecondViewController.swift in Sources */,
-				6BE6FB721B7D4BEF00DB7373 /* MapController+.swift in Sources */,
 				6BE3686E1B9CEDD800769FC3 /* BusinessInfoViewController.swift in Sources */,
 				6BD9DC201B754BB000BA1EC3 /* Business.swift in Sources */,
 				6B3756791B87BBD600B907C0 /* CategoriesTableViewController.swift in Sources */,
@@ -460,6 +511,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -479,6 +531,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -525,9 +578,22 @@
 			baseConfigurationReference = 31E83DBDD134563A2FCD1079 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Your Monterey Peninsula/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited),",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "self.com.zepedanestor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Your Monterey Peninsula-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				"TEST_HOST[sdk=*]" = "";
 			};
 			name = Debug;
 		};
@@ -536,9 +602,20 @@
 			baseConfigurationReference = 11CD4C01EBA424C5A741509B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Your Monterey Peninsula/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited),",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "self.com.zepedanestor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Your Monterey Peninsula-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -556,8 +633,9 @@
 				);
 				INFOPLIST_FILE = "Your Monterey PeninsulaTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "self.com.zepedanestor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Your Monterey Peninsula.app/Your Monterey Peninsula";
+				TEST_HOST = "";
 			};
 			name = Debug;
 		};
@@ -571,8 +649,9 @@
 				);
 				INFOPLIST_FILE = "Your Monterey PeninsulaTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "self.com.zepedanestor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Your Monterey Peninsula.app/Your Monterey Peninsula";
+				TEST_HOST = "";
 			};
 			name = Release;
 		};

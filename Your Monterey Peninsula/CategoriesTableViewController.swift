@@ -63,9 +63,9 @@ class CategoriesTableViewController: UITableViewController, CLLocationManagerDel
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell:CategoryTableViewCell = tableView.dequeueReusableCellWithIdentifier("CategoryCell", forIndexPath: indexPath) as! CategoryTableViewCell
+        let cell:CategoryTableViewCell = tableView.dequeueReusableCellWithIdentifier("CategoryCell", forIndexPath: indexPath) as! CategoryTableViewCell
 
-        var (title, image) = category_array[indexPath.row]
+        let (title, image) = category_array[indexPath.row]
         
         cell.loadCell(title: title, image: image)
         
@@ -83,7 +83,7 @@ class CategoriesTableViewController: UITableViewController, CLLocationManagerDel
         if segue.identifier == categoryToBusiness{
             if let destination = segue.destinationViewController as? BusinessListTableViewController{
                 
-                if let cellIndex = tableView.indexPathForSelectedRow()?.row{
+                if let cellIndex = tableView.indexPathForSelectedRow?.row{
                     
                     //Individual cases for when each cell is pressed
                     switch cellIndex{
@@ -109,9 +109,8 @@ class CategoriesTableViewController: UITableViewController, CLLocationManagerDel
                     case 5:
                         destination.type_of_business_to_be_displayed = "Night Life"
                         destination.userLocation = self.userLocation
-                    default:
+                    default: break
                         
-                        var array:NSMutableArray = []
 
                     }
                     
@@ -123,7 +122,7 @@ class CategoriesTableViewController: UITableViewController, CLLocationManagerDel
        
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         userLocation = manager.location
         locationManager.stopUpdatingLocation()
     }

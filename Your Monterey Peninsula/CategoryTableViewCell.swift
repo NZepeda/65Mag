@@ -19,7 +19,7 @@ class CategoryTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func loadCell(#title: String, image: String){
+    func loadCell(title title: String, image: String){
         
         backgroundImage.image = UIImage(named: image);
         cellTitle.text = title;
