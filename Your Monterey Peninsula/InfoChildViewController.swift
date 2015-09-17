@@ -20,23 +20,12 @@ class InfoChildViewController: UIViewController {
     var text: String?
   
     @IBOutlet var descriptionText: UITextView!
-    @IBOutlet var setterlabel: UILabel!
-    
-    
-   
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        setterlabel.hidden = true
-        
-        descriptionText.text = text
-        descriptionText.font = setterlabel.font
-        
-        //descriptionText.text = object["description"] as! String
+        descriptionText.text = text!
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,5 +43,28 @@ class InfoChildViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func callButtonPressed(sender: UIButton) {
+        
+        let number: String? = object?.objectForKey("phone") as? String
+        
+        if number != nil{
+            
+            var phone = "tel://"
+            phone += number!
+            
+            let url : NSURL = NSURL(string: phone)!
+            
+            UIApplication.sharedApplication().openURL(url)
+        }
+        else{
+            let alert = UIAlertController(title: "Unavailable", message: "Calling is unavailable", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        
+       
+        
+    }
 
 }

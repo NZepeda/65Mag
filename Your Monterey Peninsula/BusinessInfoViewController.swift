@@ -20,8 +20,10 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
     
     @IBOutlet var segmentedControl: UISegmentedControl!
     
+    
     @IBOutlet var infoView: UIView!
     @IBOutlet var giftsView: UIView!
+    
     
     
     
@@ -34,16 +36,14 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
         super.viewDidLoad()
         infoView.hidden = false
         giftsView.hidden = true
-        ///InfoChildViewController.delegate = self;
+
         
         setUpPage()
        
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func setUpPage(){
