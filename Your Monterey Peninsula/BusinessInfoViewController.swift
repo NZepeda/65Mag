@@ -42,18 +42,28 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
         setUpPage()
         
         control = HMSegmentedControl.init(sectionTitles: ["One", "Two"])
-        control.frame = CGRectMake(16, 227, 568, 29)
-//        control.translatesAutoresizingMaskIntoConstraints = false
+        control.frame = CGRectMake(16, 227, 320, 29)
+
+        control.translatesAutoresizingMaskIntoConstraints = false
         control.addTarget(self, action: Selector("tabChanged:"), forControlEvents: .ValueChanged)
         view.addSubview(control)
         
-        let topContraint = NSLayoutConstraint(item: control, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: businessImage, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 13)
+        let topConstraint = NSLayoutConstraint(item: control, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: businessImage, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 13)
+        view.addConstraint(topConstraint)
         
-        let leftContraint = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: control, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 16)
-        let rightContraint = NSLayoutConstraint(item: control, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: control, attribute: NSLayoutAttribute.Trailing, multiplier: 1.0, constant: 16)
+        let leftConstraint = NSLayoutConstraint(item: control, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 16)
+        view.addConstraint(leftConstraint)
+        
+        let rightConstraint = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: control, attribute: NSLayoutAttribute.Trailing, multiplier: 1.0, constant: 16)
+        
+        view.addConstraint(rightConstraint)
+        
+        let bottomConstraint = NSLayoutConstraint(item: giftsView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: control, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0)
+        
+        view.addConstraint(bottomConstraint)
 
     
-        NSLayoutConstraint.activateConstraints([topContraint, leftContraint, rightContraint])
+        //NSLayoutConstraint.activateConstraints([topConstraint, leftConstraint, rightConstraint, bottomConstraint])
        
     }
 
