@@ -50,12 +50,25 @@ class InfoChildViewController: UIViewController {
         
         if number != nil{
             
-            var phone = "tel://"
-            phone += number!
+            let alert = UIAlertController(title: "Call", message: number, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Call", style: UIAlertActionStyle.Default, handler: {action in
+                switch action.style{
+                case .Default:
+                    var phone = "tel://"
+                    phone += number!
+                    
+                    let url : NSURL = NSURL(string: phone)!
+                    
+                    UIApplication.sharedApplication().openURL(url)
+                    break
+                default:
+                    break
+                }
+            }))
+            self.presentViewController(alert, animated: true, completion: nil)
             
-            let url : NSURL = NSURL(string: phone)!
             
-            UIApplication.sharedApplication().openURL(url)
         }
         else{
             let alert = UIAlertController(title: "Unavailable", message: "Calling is unavailable", preferredStyle: UIAlertControllerStyle.Alert)

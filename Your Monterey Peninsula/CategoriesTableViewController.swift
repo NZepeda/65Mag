@@ -32,15 +32,26 @@ class CategoriesTableViewController: UITableViewController, CLLocationManagerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.locationManager.delegate = self
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
         
         if CLLocationManager.locationServicesEnabled(){
-            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            self.locationManager.startUpdatingLocation()
+            if #available(iOS 9.0, *){
+                locationManager.requestWhenInUseAuthorization()
+                locationManager.requestLocation()
+                print("got called!")
+            }
+            else{
+                print("no i did")
+                locationManager.requestWhenInUseAuthorization()
+                locationManager.startUpdatingLocation()
+            }
         }
         else{
-            //handle location error in here
+            print("Services not enables")
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -123,8 +134,19 @@ class CategoriesTableViewController: UITableViewController, CLLocationManagerDel
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        userLocation = manager.location
-        locationManager.stopUpdatingLocation()
+        
+        
+        if let location = locations.first{
+            userLocation = location
+        }
+        else{
+            print("Why you not working")
+        }
+        
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print(error)
     }
     
     

@@ -9,7 +9,8 @@
 import UIKit
 import Parse
 import Bolts
-import PageMenu
+import MapKit
+import HMSegmentedControl
 
 class BusinessInfoViewController: UIViewController, InfoChildViewControllerDelegate {
 
@@ -17,28 +18,42 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
     @IBOutlet var businessName: UILabel!
     @IBOutlet var offers: UILabel!
     @IBOutlet var distance: UILabel!
-    
     @IBOutlet var segmentedControl: UISegmentedControl!
-    
-    
+    @IBOutlet var takeMeThereButton: UIButton!
     @IBOutlet var infoView: UIView!
     @IBOutlet var giftsView: UIView!
+    
+    var control: HMSegmentedControl!
     
     
     
     
     var business: PFObject!
     var distanceFromUser: String!
-    
-    var PageMenu: CAPSPageMenu?
+    var coordinates: PFGeoPoint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        segmentedControl.hidden = true
         infoView.hidden = false
         giftsView.hidden = true
 
-        
+        print(segmentedControl.frame)
         setUpPage()
+        
+        control = HMSegmentedControl.init(sectionTitles: ["One", "Two"])
+        control.frame = CGRectMake(16, 227, 568, 29)
+//        control.translatesAutoresizingMaskIntoConstraints = false
+        control.addTarget(self, action: Selector("tabChanged:"), forControlEvents: .ValueChanged)
+        view.addSubview(control)
+        
+        let topContraint = NSLayoutConstraint(item: control, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: businessImage, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 13)
+        
+        let leftContraint = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: control, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 16)
+        let rightContraint = NSLayoutConstraint(item: control, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: control, attribute: NSLayoutAttribute.Trailing, multiplier: 1.0, constant: 16)
+
+    
+        NSLayoutConstraint.activateConstraints([topContraint, leftContraint, rightContraint])
        
     }
 
@@ -55,10 +70,16 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
         let imageData = business["image"] as! PFFile
         imageData.getDataInBackgroundWithBlock { (data, error) -> Void in
             
-            let image:UIImage = UIImage(data: data!)!
-//            let resizedImage = Toucan.Resize.resizeImage(image, size: CGSize(width: 320.0, height: 150.0), fitMode: Toucan.Resize.FitMode.Clip)
-            
-            self.businessImage.image = image
+        let image:UIImage = UIImage(data: data!)!
+        self.businessImage.image = image
+        }
+        
+        if let coordinatesFromParse = business["geoLocation"] as? PFGeoPoint{
+            coordinates = coordinatesFromParse
+        }
+        else{
+            takeMeThereButton.enabled = false
+            takeMeThereButton.backgroundColor = UIColor.grayColor()
         }
         
     }
@@ -81,9 +102,27 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
         }
     }
     
+    @IBAction func takeMeThereButtonPushed(sender: UIButton) {
+        
+        let latitude : CLLocationDegrees = coordinates.latitude
+        let longitude : CLLocationDegrees = coordinates.longitude
+        let coordinate = CLLocationCoordinate2DMake(latitude, longitude)
+        
+        let placemark : MKPlacemark = MKPlacemark(coordinate: coordinate, addressDictionary: nil)
+        
+        let mapItem : MKMapItem = MKMapItem(placemark: placemark)
+        mapItem.name = business.objectForKey("name") as? String
+        
+        let launchOptions : NSDictionary = NSDictionary(object: MKLaunchOptionsDirectionsModeDriving, forKey: MKLaunchOptionsDirectionsModeKey)
+        
+        let currentLocationMapItem : MKMapItem = MKMapItem.mapItemForCurrentLocation()
+        
+        MKMapItem.openMapsWithItems([currentLocationMapItem, mapItem], launchOptions: launchOptions as? [String : AnyObject])
+        
+    }
     
     @IBAction func tabChanged(sender: UISegmentedControl) {
-        switch segmentedControl.selectedSegmentIndex
+        switch control.selectedSegmentIndex
         {
         case 0:
             infoView.hidden = false

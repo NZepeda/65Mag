@@ -72,6 +72,7 @@ class BusinessListTableViewController: UITableViewController, CLLocationManagerD
         
         //segue
         let listToInfo = "listToInfoSegue"
+        let listToMap = "listToMapSegue"
         
         if segue.identifier == listToInfo{
             if let destination = segue.destinationViewController as? BusinessInfoViewController{
@@ -82,6 +83,20 @@ class BusinessListTableViewController: UITableViewController, CLLocationManagerD
                     destination.distanceFromUser = distanceFromBusiness(loc!)
                 }
                 
+            }
+        }
+        
+        if segue.identifier == listToMap{
+            
+            print(segue.destinationViewController)
+            if let destination = segue.destinationViewController as? UINavigationController{
+                
+                if let targetController = destination.topViewController as? MapController{
+                    print("Got Called!")
+                    print(business_list_array.count)
+                    targetController.businessArray = business_list_array
+                
+                }
             }
         }
 
@@ -146,10 +161,10 @@ class BusinessListTableViewController: UITableViewController, CLLocationManagerD
     //gets the distanc between you and the business
     func distanceFromBusiness(businessLocation: CLLocation) -> String{
         
-        print(userLocation)
-        //let distance = businessLocation.distanceFromLocation(userLocation!)
-        //let distanceString = String(format:"%.1f mi", distance / 1608.344)
-        return "Hey!"
+        let distance = businessLocation.distanceFromLocation(userLocation!)
+        let distanceString = String(format:"%.1f mi", distance / 1608.344)
+        
+        return distanceString
         
     }
     

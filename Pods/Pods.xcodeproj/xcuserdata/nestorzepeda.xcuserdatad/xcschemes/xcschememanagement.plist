@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HMSegmentedControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>PageMenu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0DEB220D89279E0B9896556CE5F9EC7D</key>
+		<key>2C6D1DFAB3F9DCEEDF0EE937FAF182C6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4117C6FFAADBADB53AFC6668ECE7E26C</key>
+		<key>456AD5E28A376D558631B8E46701954D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>818BB28525D3A54E4103E272D814B499</key>
+		<key>5FAE5DAB2800FF48741065EB6DC8A637</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9AEC4330448BD02C7A327406EBA29EF7</key>
+		<key>EB810AF4D3715BC9BBF7475CC35B08DC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4FF7842D0D0D67B1556C71F4F928747</key>
 		<dict>
 			<key>primary</key>
 			<true/>

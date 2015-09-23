@@ -46,7 +46,7 @@
                                 <connections>
                                     <outlet property="backgroundImage" destination="qkI-eR-tSY" id="UOu-Lj-t1u"/>
                                     <outlet property="cellTitle" destination="ePz-hp-bVR" id="96T-cg-hxx"/>
-                                    <segue destination="5bh-XC-GCf" kind="show" identifier="categoryToBusiness" id="CP6-qc-ZMs"/>
+                                    <segue destination="5bh-XC-GCf" kind="show" identifier="categoryToBusiness" id="x2M-jb-m7o"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -141,10 +141,18 @@
                             <outlet property="delegate" destination="5bh-XC-GCf" id="NUk-uO-UWG"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="5u6-Cj-HBo">
+                        <barButtonItem key="rightBarButtonItem" image="Tab Map Button" id="Gvz-eZ-ZBC">
+                            <color key="tintColor" red="1" green="0.0" blue="0.11518711869999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="wYj-eG-bua" kind="presentation" identifier="listToMapSegue" modalTransitionStyle="flipHorizontal" id="GA5-ma-xfc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CN2-w7-T5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246" y="-380"/>
+            <point key="canvasLocation" x="2138" y="-588"/>
         </scene>
         <!--Business Info View Controller-->
         <scene sceneID="gwP-tu-maY">
@@ -206,15 +214,6 @@
                                     <segue destination="qOF-yU-9bV" kind="embed" identifier="InfoSegue" id="oWd-eX-M67"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4EU-eD-29u">
-                                <rect key="frame" x="16" y="502" width="568" height="30"/>
-                                <color key="backgroundColor" red="0.92549019607843142" green="0.16012746089800722" blue="0.141329860050458" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Take Me There">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wAc-nG-sug">
                                 <rect key="frame" x="16" y="256" width="568" height="229"/>
                                 <connections>
@@ -227,12 +226,26 @@
                                     <segment title="Info"/>
                                     <segment title="Gifts"/>
                                 </segments>
+                                <connections>
+                                    <action selector="tabChanged:" destination="Ked-pR-8Yh" eventType="valueChanged" id="cCy-pY-8HT"/>
+                                </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyB-LE-Es1">
+                                <rect key="frame" x="33" y="494" width="535" height="43"/>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.16012746089999999" blue="0.14132986010000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Take Me There">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takeMeThereButtonPushed:" destination="Ked-pR-8Yh" eventType="touchUpInside" id="Yf9-9z-waq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ftA-IG-s8v" secondAttribute="trailing" id="4Ee-32-7EY"/>
-                            <constraint firstAttribute="trailing" secondItem="4EU-eD-29u" secondAttribute="trailing" constant="16" id="4no-Xh-MHD"/>
                             <constraint firstItem="ftA-IG-s8v" firstAttribute="leading" secondItem="hYe-O3-84S" secondAttribute="leading" id="5bV-8G-3GY"/>
                             <constraint firstItem="M79-dn-UhD" firstAttribute="leading" secondItem="hYe-O3-84S" secondAttribute="leading" constant="16" id="AXN-Me-TMG"/>
                             <constraint firstAttribute="trailing" secondItem="M79-dn-UhD" secondAttribute="trailing" constant="16" id="KhU-EF-lQ5"/>
@@ -241,17 +254,18 @@
                             <constraint firstItem="dXx-b1-Gwu" firstAttribute="leading" secondItem="hYe-O3-84S" secondAttribute="leading" constant="16" id="akb-Tz-80K"/>
                             <constraint firstItem="wAc-nG-sug" firstAttribute="bottom" secondItem="dXx-b1-Gwu" secondAttribute="bottom" id="c5B-FC-N2o"/>
                             <constraint firstAttribute="trailing" secondItem="dXx-b1-Gwu" secondAttribute="trailing" constant="16" id="cRd-9S-OnC"/>
+                            <constraint firstItem="JyB-LE-Es1" firstAttribute="leading" secondItem="hYe-O3-84S" secondAttribute="leading" constant="33" id="dJH-Uj-gr0"/>
                             <constraint firstItem="dXx-b1-Gwu" firstAttribute="top" secondItem="JWt-gD-mXA" secondAttribute="bottom" constant="42" id="fNA-cL-Ixr"/>
                             <constraint firstItem="M79-dn-UhD" firstAttribute="top" secondItem="JWt-gD-mXA" secondAttribute="bottom" constant="13" id="kYG-BD-MjC"/>
-                            <constraint firstItem="4EU-eD-29u" firstAttribute="leading" secondItem="hYe-O3-84S" secondAttribute="leading" constant="16" id="kuJ-b3-IhN"/>
+                            <constraint firstItem="YPl-98-Lw5" firstAttribute="top" secondItem="JyB-LE-Es1" secondAttribute="bottom" constant="14" id="nDJ-zR-eS5"/>
                             <constraint firstItem="YPl-98-Lw5" firstAttribute="top" secondItem="dXx-b1-Gwu" secondAttribute="bottom" constant="66" id="qlj-TT-yTR"/>
-                            <constraint firstItem="4EU-eD-29u" firstAttribute="top" secondItem="dXx-b1-Gwu" secondAttribute="bottom" constant="17" id="sFT-aq-k61"/>
                             <constraint firstItem="ftA-IG-s8v" firstAttribute="top" secondItem="ae6-ju-phz" secondAttribute="bottom" id="sMf-cI-23r"/>
-                            <constraint firstItem="YPl-98-Lw5" firstAttribute="top" secondItem="4EU-eD-29u" secondAttribute="bottom" constant="19" id="v1a-Rf-riq"/>
+                            <constraint firstAttribute="trailing" secondItem="JyB-LE-Es1" secondAttribute="trailing" constant="32" id="uMl-vI-9rW"/>
                             <constraint firstItem="JWt-gD-mXA" firstAttribute="bottom" secondItem="ftA-IG-s8v" secondAttribute="bottom" id="viJ-M9-DXS"/>
                             <constraint firstItem="wAc-nG-sug" firstAttribute="leading" secondItem="dXx-b1-Gwu" secondAttribute="leading" id="vzY-H1-8JR"/>
                             <constraint firstItem="wAc-nG-sug" firstAttribute="top" secondItem="M79-dn-UhD" secondAttribute="bottom" constant="1" id="z6j-Qq-3Ju"/>
                             <constraint firstItem="wAc-nG-sug" firstAttribute="trailing" secondItem="dXx-b1-Gwu" secondAttribute="trailing" id="zEJ-E4-jUC"/>
+                            <constraint firstItem="JyB-LE-Es1" firstAttribute="top" secondItem="wAc-nG-sug" secondAttribute="bottom" constant="9" id="zw5-ga-7Nw"/>
                         </constraints>
                     </view>
                     <connections>
@@ -262,11 +276,12 @@
                         <outlet property="infoView" destination="dXx-b1-Gwu" id="wpV-Cu-XPE"/>
                         <outlet property="offers" destination="KJm-79-sLv" id="FiY-EF-HEA"/>
                         <outlet property="segmentedControl" destination="M79-dn-UhD" id="Bdn-Pd-jWp"/>
+                        <outlet property="takeMeThereButton" destination="JyB-LE-Es1" id="TST-Zn-ndZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZg-bg-7f0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2952" y="-380"/>
+            <point key="canvasLocation" x="3354" y="-394"/>
         </scene>
         <!--Map Controller-->
         <scene sceneID="hNz-n2-bh7">
@@ -283,9 +298,6 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jct-Na-heV">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </mapView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nTw-UG-Z7e">
-                                <rect key="frame" x="0.0" y="564" width="414" height="128"/>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -295,16 +307,22 @@
                             <constraint firstItem="jct-Na-heV" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="y3k-XH-R1g"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="6Lh-El-MiH"/>
+                    <navigationItem key="navigationItem" id="6Lh-El-MiH">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="listIcon" id="Z0W-pC-Wsv">
+                            <color key="tintColor" red="1" green="0.0" blue="0.11518711869999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="listButtonPressed:" destination="9pv-A4-QxB" id="5XT-iz-bGx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="listView" destination="nTw-UG-Z7e" id="XsK-7t-jwc"/>
                         <outlet property="mapView" destination="jct-Na-heV" id="uKJ-nh-EZW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1959" y="422"/>
+            <point key="canvasLocation" x="3278" y="-1142"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -487,7 +505,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ETK-8f-D9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2683" y="201.5"/>
+            <point key="canvasLocation" x="3849" y="275.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="OmP-Vb-s4p">
@@ -505,13 +523,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQy-71-Rdu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3704" y="-380.5"/>
+            <point key="canvasLocation" x="4198" y="-394.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FGB-0z-sHE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wYj-eG-bua" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Not-ss-Gbb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="RJW-TV-BW0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rVA-jg-ckY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2818.5" y="-1156.5"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Tab Map Button" width="21" height="28"/>
         <image name="callButton" width="96" height="40"/>
         <image name="facebookButton" width="98" height="42"/>
         <image name="first" width="30" height="30"/>
+        <image name="listIcon" width="27" height="21"/>
         <image name="second" width="30" height="30"/>
         <image name="webButton" width="96" height="40"/>
     </resources>

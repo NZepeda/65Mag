@@ -26,7 +26,6 @@ class MapController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupMap()
-        self.getBusinessesFromParse()
         
         //get user current location
         self.manager.delegate = self;
@@ -46,10 +45,13 @@ class MapController: UIViewController, CLLocationManagerDelegate {
     //Map functions
     func setupMap(){
         
+        //center map in carmel
         let initialLocation = CLLocation(latitude: 36.552647, longitude: -121.9223235);
         self.centerMapOnLocation(initialLocation);
         self.mapView.showsUserLocation = true;
-//        self.mapView.mapType = MKMapType.Hybrid
+        
+        displayInfo()
+        print(businessArray.count)
     }
     
     
@@ -80,60 +82,30 @@ class MapController: UIViewController, CLLocationManagerDelegate {
     }
     
     //Helper Methods
-    func getBusinessesFromParse(){
-        
-        let query = PFQuery(className: "Business")
-        
-        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
-            
-            if error == nil{
-                for object in objects!
-                {
-                    print(object)
-                }
-                self.businessArray = objects!
-                self.displayInfo()
-            }
-            else{
-                print(error)
-            }
-            
-        }
-       
-//        query.findObjectsInBackgroundWithBlock { (objects: [NSArray]?, error: NSError?) -> Void in
-//            
-//            if !error{
-//                
-//                for object in objects!
-//                {
-//                    print(object)
-//                }
-//                
-//                self.businessArray = objects!;
-//                self.displayInfo()
-//            }
-//            else{
-//                print(error)
-//            }
-//        } //ends query block
-        
-    } // ends getBusinessness function
-    
     func displayInfo(){
         
-        let position = self.businessArray[0]["geoLocation"] as! PFGeoPoint        
-        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(position.latitude, position.longitude)
         
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = location
-        annotation.title = self.businessArray[0]["name"] as? String
-        annotation.subtitle = self.businessArray[0]["address"] as? String
-        
-        self.mapView.addAnnotation(annotation)
+        for business in businessArray{
+            
+            print(business)
+            let position = business.objectForKey("geoLocation") as! PFGeoPoint
+            let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(position.latitude, position.longitude)
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location
+            annotation.title  = business.objectForKey("name") as? String
+            annotation.subtitle = business.objectForKey("address") as? String
+            
+            mapView.addAnnotation(annotation)
+        }
+
         
     }
     
     
+    @IBAction func listButtonPressed(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: {})
+    }
     
 
 
