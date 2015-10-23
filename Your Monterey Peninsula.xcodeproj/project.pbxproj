@@ -35,9 +35,11 @@
 		6BA5943B1B890D4000BA348A /* BusinessListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5943A1B890D4000BA348A /* BusinessListCell.swift */; };
 		6BA5943E1B891FB000BA348A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5943D1B891FB000BA348A /* Data.swift */; };
 		6BD9DC201B754BB000BA1EC3 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9DC1F1B754BB000BA1EC3 /* Business.swift */; };
+		6BE350431BDA898500ED47C5 /* GiftsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE350421BDA898500ED47C5 /* GiftsTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		6BE3686E1B9CEDD800769FC3 /* BusinessInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE3686D1B9CEDD800769FC3 /* BusinessInfoViewController.swift */; };
 		6BEF0FDE1B98EE7300AD9FD3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEF0FDD1B98EE7300AD9FD3 /* CoreLocation.framework */; };
 		6BEF0FE01B98EE7D00AD9FD3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEF0FDF1B98EE7D00AD9FD3 /* MapKit.framework */; };
+		6BEF6BC01BD7ED71005CC48F /* GiftsChildTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEF6BBF1BD7ED71005CC48F /* GiftsChildTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8222E8B992837C9540E4088E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FF6C1D36958D0D89BC26B3 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -87,9 +89,11 @@
 		6BA5943A1B890D4000BA348A /* BusinessListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListCell.swift; sourceTree = "<group>"; };
 		6BA5943D1B891FB000BA348A /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		6BD9DC1F1B754BB000BA1EC3 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		6BE350421BDA898500ED47C5 /* GiftsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftsTableViewCell.swift; sourceTree = "<group>"; };
 		6BE3686D1B9CEDD800769FC3 /* BusinessInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessInfoViewController.swift; sourceTree = "<group>"; };
 		6BEF0FDD1B98EE7300AD9FD3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6BEF0FDF1B98EE7D00AD9FD3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6BEF6BBF1BD7ED71005CC48F /* GiftsChildTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftsChildTableViewController.swift; sourceTree = "<group>"; };
 		D4FF6C1D36958D0D89BC26B3 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -139,6 +143,7 @@
 		6B3CC1671BA0DFA000061484 /* ChildControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6BE350411BDA895800ED47C5 /* GiftsTab */,
 				6B3CC1651BA0DF8E00061484 /* InfoChildViewController.swift */,
 			);
 			name = ChildControllers;
@@ -242,6 +247,15 @@
 				6B4E14A01B6956C700C4299C /* SecondViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		6BE350411BDA895800ED47C5 /* GiftsTab */ = {
+			isa = PBXGroup;
+			children = (
+				6BEF6BBF1BD7ED71005CC48F /* GiftsChildTableViewController.swift */,
+				6BE350421BDA898500ED47C5 /* GiftsTableViewCell.swift */,
+			);
+			name = GiftsTab;
 			sourceTree = "<group>";
 		};
 		6BE3686C1B9CEDA900769FC3 /* BusinessInfo */ = {
@@ -438,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BA5943B1B890D4000BA348A /* BusinessListCell.swift in Sources */,
+				6BE350431BDA898500ED47C5 /* GiftsTableViewCell.swift in Sources */,
 				6BA5943E1B891FB000BA348A /* Data.swift in Sources */,
 				6B4E14A11B6956C700C4299C /* SecondViewController.swift in Sources */,
 				6BE3686E1B9CEDD800769FC3 /* BusinessInfoViewController.swift in Sources */,
@@ -446,6 +461,7 @@
 				6B5430581B8D035300FECABF /* ParseFactory.swift in Sources */,
 				6B37567E1B87C1D400B907C0 /* CategoryTableViewCell.swift in Sources */,
 				6B4E149D1B6956C700C4299C /* AppDelegate.swift in Sources */,
+				6BEF6BC01BD7ED71005CC48F /* GiftsChildTableViewController.swift in Sources */,
 				6B4E149F1B6956C700C4299C /* MapController.swift in Sources */,
 				6B3CC1661BA0DF8E00061484 /* InfoChildViewController.swift in Sources */,
 				6BA594381B890B9A00BA348A /* BusinessListTableViewController.swift in Sources */,

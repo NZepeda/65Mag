@@ -38,17 +38,25 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
         infoView.hidden = false
         giftsView.hidden = true
 
-        print(segmentedControl.frame)
         setUpPage()
         
-        control = HMSegmentedControl.init(sectionTitles: ["One", "Two"])
-        control.frame = CGRectMake(16, 227, 320, 29)
+        control = HMSegmentedControl.init(sectionTitles: ["Information", "Gifts"])
+        control.frame = CGRectMake(20, 227, 320, 29)
+        
+        control.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.lightGrayColor()]
+        control.selectedTitleTextAttributes = [NSForegroundColorAttributeName: UIColor.blackColor()]
+        
+        control.selectionIndicatorColor = UIColor.redColor()
+        control.selectionIndicatorHeight = 2.0
+        control.selectionIndicatorBoxOpacity = 0.8
+        control.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe
+        control.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown
 
         control.translatesAutoresizingMaskIntoConstraints = false
         control.addTarget(self, action: Selector("tabChanged:"), forControlEvents: .ValueChanged)
         view.addSubview(control)
         
-        let topConstraint = NSLayoutConstraint(item: control, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: businessImage, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 13)
+        let topConstraint = NSLayoutConstraint(item: control, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: businessImage, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 10)
         view.addConstraint(topConstraint)
         
         let leftConstraint = NSLayoutConstraint(item: control, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 16)
@@ -58,7 +66,7 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
         
         view.addConstraint(rightConstraint)
         
-        let bottomConstraint = NSLayoutConstraint(item: giftsView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: control, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0)
+        let bottomConstraint = NSLayoutConstraint(item: giftsView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: control, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 1.0)
         
         view.addConstraint(bottomConstraint)
 
