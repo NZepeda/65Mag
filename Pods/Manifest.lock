@@ -1,16 +1,19 @@
 PODS:
-  - Bolts/Tasks (1.2.0)
-  - Parse (1.7.5.3):
-    - Bolts/Tasks (>= 1.2.0)
-  - Toucan (0.4.2)
+  - Bolts/Tasks (1.2.2)
+  - HMSegmentedControl (1.5.2)
+  - PageMenu (1.2.8)
+  - Parse (1.8.4):
+    - Bolts/Tasks (>= 1.2.2)
 
 DEPENDENCIES:
-  - Parse (~> 1.3)
-  - Toucan (~> 0.4)
+  - HMSegmentedControl
+  - PageMenu
+  - Parse
 
 SPEC CHECKSUMS:
-  Bolts: d176cb1e0012175589e389a9db49b85e27787576
-  Parse: 373adbb1ad2e34d383542c3b28f678c49ebe4881
-  Toucan: ed60ee997d6fad44712e36f6ea07a0b6dec01cac
+  Bolts: 20a2bd788273360cb1e31530dc19b8544eef2544
+  HMSegmentedControl: 83b9686022d2176fb6457d2bdb61e5d6393fed7d
+  PageMenu: 703e82e173f54a4626ab88fcdca7703ee52e0cbe
+  Parse: c09d6efe4b2eea752765bc6f365a55516d909079
 
 COCOAPODS: 0.38.2

@@ -8,28 +8,50 @@
 
 import UIKit
 import Parse
+import CoreLocation
 
-class CategoriesTableViewController: UITableViewController {
+class CategoriesTableViewController: UITableViewController, CLLocationManagerDelegate {
     
     let category_array = [
+        ("Restaurants", "restaurants.jpg"),
         ("Shopping", "shopping.jpg"),
         ("Wine Tasting", "wine.jpg"),
         ("Beaches", "beach.jpg"),
         ("Galleries", "gallery.jpg"),
         ("Night Life", "nightlife.jpg"),
-        ("Restaurants", "restaurants.jpg")
+       
     ];
     
     let factory = ParseFactory()
-
+    
+    var locationManager = CLLocationManager()
+    var userLocation: CLLocation? = nil
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        
+        if CLLocationManager.locationServicesEnabled(){
+            if #available(iOS 9.0, *){
+                locationManager.requestWhenInUseAuthorization()
+                locationManager.requestLocation()
+                print("got called!")
+            }
+            else{
+                print("no i did")
+                locationManager.requestWhenInUseAuthorization()
+                locationManager.startUpdatingLocation()
+            }
+        }
+        else{
+            print("Services not enables")
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,9 +74,9 @@ class CategoriesTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell:CategoryTableViewCell = tableView.dequeueReusableCellWithIdentifier("CategoryCell", forIndexPath: indexPath) as! CategoryTableViewCell
+        let cell:CategoryTableViewCell = tableView.dequeueReusableCellWithIdentifier("CategoryCell", forIndexPath: indexPath) as! CategoryTableViewCell
 
-        var (title, image) = category_array[indexPath.row]
+        let (title, image) = category_array[indexPath.row]
         
         cell.loadCell(title: title, image: image)
         
@@ -72,38 +94,35 @@ class CategoriesTableViewController: UITableViewController {
         if segue.identifier == categoryToBusiness{
             if let destination = segue.destinationViewController as? BusinessListTableViewController{
                 
-                if let cellIndex = tableView.indexPathForSelectedRow()?.row{
-                    
-                    var businesslist = Entry() //for testing!
-                    
-                    var query = PFQuery(className:"Business")
-                    query.whereKey("businesType", equalTo: "Restaurants")
-                    
+                if let cellIndex = tableView.indexPathForSelectedRow?.row{
                     
                     //Individual cases for when each cell is pressed
                     switch cellIndex{
                     case 0:
-                        //destination.business_list_array = businesslist.getShopping() as! [(Business)]
+                        destination.type_of_business_to_be_displayed = "Restaurant"
+                        destination.userLocation = self.userLocation
                         break
                     case 1:
-                        //destination.business_list_array = businesslist.getWineTasting() as! [(Business)]
+                        destination.type_of_business_to_be_displayed = "Shopping"
+                        destination.userLocation = self.userLocation
                         break
                     case 2:
-                        destination.type_of_business_to_be_displayed = "Beach"
+                        destination.type_of_business_to_be_displayed = "Wine Tasting"
+                        destination.userLocation = self.userLocation
                         break
                     case 3:
-                        destination.type_of_business_to_be_displayed = "Restaurant"
+                        destination.type_of_business_to_be_displayed = "Beach"
+                        destination.userLocation = self.userLocation
                         break
-                    default:
+                    case 4:
+                        destination.type_of_business_to_be_displayed = "Galleries"
+                        destination.userLocation = self.userLocation
+                    case 5:
+                        destination.type_of_business_to_be_displayed = "Night Life"
+                        destination.userLocation = self.userLocation
+                    default: break
                         
-                        var array:NSMutableArray = []
-                        
-//                        array.addObjectsFromArray(businesslist.getShopping() as [AnyObject])
-//                        array.addObjectsFromArray(businesslist.getWineTasting() as [AnyObject])         ///TESTING ONLY *DELETE*
-//                        array.addObjectsFromArray(businesslist.getBeaches() as [AnyObject])
-//                        
-//                        destination.business_list_array = array.copy() as! [(Business)]
-                        
+
                     }
                     
                    
@@ -112,6 +131,22 @@ class CategoriesTableViewController: UITableViewController {
             }
         }
        
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        
+        if let location = locations.first{
+            userLocation = location
+        }
+        else{
+            print("Why you not working")
+        }
+        
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print(error)
     }
     
     

@@ -21,7 +21,7 @@ class BusinessListCell: UITableViewCell {
         // Initialization code
     }
     
-    func loadCell(#businessName: String, offersSubHeader: String, distanceFromUser: String, image: UIImage){
+    func loadCell(businessName businessName: String, offersSubHeader: String, distanceFromUser: String, image: UIImage){
         
         self.businessName.adjustsFontSizeToFitWidth = true
         

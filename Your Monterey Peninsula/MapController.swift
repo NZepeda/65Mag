@@ -19,14 +19,13 @@ class MapController: UIViewController, CLLocationManagerDelegate {
     
     let regionRadius: CLLocationDistance = 1250;
     let manager = CLLocationManager();
-    var businessArray = [AnyObject]()
+    var businessArray = [PFObject]()
     var businesses = [Business]() // convert PFObjects into Business Objects
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupMap()
-        self.getBusinessesFromParse()
         
         //get user current location
         self.manager.delegate = self;
@@ -46,10 +45,13 @@ class MapController: UIViewController, CLLocationManagerDelegate {
     //Map functions
     func setupMap(){
         
+        //center map in carmel
         let initialLocation = CLLocation(latitude: 36.552647, longitude: -121.9223235);
         self.centerMapOnLocation(initialLocation);
         self.mapView.showsUserLocation = true;
-//        self.mapView.mapType = MKMapType.Hybrid
+        
+        displayInfo()
+        print(businessArray.count)
     }
     
     
@@ -61,8 +63,8 @@ class MapController: UIViewController, CLLocationManagerDelegate {
     }
     
     //location delegates
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: { (placemarks, error) -> Void in
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: { (placemarks, error) -> Void in
             
             //Do some stuff here
             
@@ -75,49 +77,35 @@ class MapController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println("Error! " + error.localizedDescription);
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Error! " + error.localizedDescription);
     }
     
     //Helper Methods
-    func getBusinessesFromParse(){
-        
-        var query = PFQuery(className: "Business")
-       
-        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
-            
-            if error == nil{
-                
-                for object in objects!
-                {
-                    println(object)
-                }
-                
-                self.businessArray = objects!;
-                self.displayInfo()
-            }
-            else{
-                println(error)
-            }
-        } //ends query block
-        
-    } // ends getBusinessness function
-    
     func displayInfo(){
         
-        let position = self.businessArray[0]["geoLocation"] as! PFGeoPoint        
-        var location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(position.latitude, position.longitude)
         
-        var annotation = MKPointAnnotation()
-        annotation.coordinate = location
-        annotation.title = self.businessArray[0]["name"] as! String
-        annotation.subtitle = self.businessArray[0]["address"] as! String
-        
-        self.mapView.addAnnotation(annotation)
+        for business in businessArray{
+            
+            print(business)
+            let position = business.objectForKey("geoLocation") as! PFGeoPoint
+            let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(position.latitude, position.longitude)
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location
+            annotation.title  = business.objectForKey("name") as? String
+            annotation.subtitle = business.objectForKey("address") as? String
+            
+            mapView.addAnnotation(annotation)
+        }
+
         
     }
     
     
+    @IBAction func listButtonPressed(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: {})
+    }
     
 
 
