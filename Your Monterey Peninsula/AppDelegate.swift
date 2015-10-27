@@ -21,6 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("pFoImqYiVW3OIWZsR4FMupZgaSami5hpwL9ckaYD",
             clientKey: "n8DHKfv96NDwM2Z4OaqabTNZCh12kxIcUKaQYWi4")
         
+        BITHockeyManager.sharedHockeyManager().configureWithIdentifier("3db5cd7f178942f7b9b4811ea7fe8f78")
+        // Do some additional configuration if needed here
+        BITHockeyManager.sharedHockeyManager().startManager()
+        BITHockeyManager.sharedHockeyManager().authenticator.authenticateInstallation()
+
+        
         
         
         return true

@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HockeySDK-HockeySDKResources.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>PageMenu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2C6D1DFAB3F9DCEEDF0EE937FAF182C6</key>
+		<key>49143777A4AA8835E6DAD6E0646E6102</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>456AD5E28A376D558631B8E46701954D</key>
+		<key>4985457FB422E653C0B0B2EC3726BDF0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5FAE5DAB2800FF48741065EB6DC8A637</key>
+		<key>523ED6FCF2EDCE92A8D995A0C88EB783</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EB810AF4D3715BC9BBF7475CC35B08DC</key>
+		<key>703FBF66C39D6FF3A5456FE2222C8D10</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F4FF7842D0D0D67B1556C71F4F928747</key>
+		<key>9F1627DA15879D37B48EB99C9393580B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E665231E8C3EE9432FC148BA9AC2DC39</key>
 		<dict>
 			<key>primary</key>
 			<true/>

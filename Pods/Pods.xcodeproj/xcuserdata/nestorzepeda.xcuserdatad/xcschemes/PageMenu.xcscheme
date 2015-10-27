@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A44CF4F89E9CE09A420C9FEB"
+               BlueprintIdentifier = "65DE76B999829EA7D8901CA8"
                BuildableName = "PageMenu.framework"
                BlueprintName = "PageMenu"
                ReferencedContainer = "container:Pods.xcodeproj">
