@@ -54,12 +54,14 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods/Bolts.framework'
   install_framework 'Pods/HMSegmentedControl.framework'
+  install_framework 'Pods/NMPopUpViewSwift.framework'
   install_framework 'Pods/PageMenu.framework'
   install_framework 'Pods/Parse.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods/Bolts.framework'
   install_framework 'Pods/HMSegmentedControl.framework'
+  install_framework 'Pods/NMPopUpViewSwift.framework'
   install_framework 'Pods/PageMenu.framework'
   install_framework 'Pods/Parse.framework'
 fi

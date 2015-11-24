@@ -4,6 +4,7 @@ PODS:
   - HockeySDK (3.8.4):
     - HockeySDK/AllFeaturesLib (= 3.8.4)
   - HockeySDK/AllFeaturesLib (3.8.4)
+  - NMPopUpViewSwift (3.0.1)
   - PageMenu (1.2.8)
   - Parse (1.8.4):
     - Bolts/Tasks (>= 1.2.2)
@@ -11,6 +12,7 @@ PODS:
 DEPENDENCIES:
   - HMSegmentedControl
   - HockeySDK (~> 3.8.2)
+  - NMPopUpViewSwift
   - PageMenu
   - Parse
 
@@ -18,6 +20,7 @@ SPEC CHECKSUMS:
   Bolts: 20a2bd788273360cb1e31530dc19b8544eef2544
   HMSegmentedControl: 83b9686022d2176fb6457d2bdb61e5d6393fed7d
   HockeySDK: 464a9eb01c42718515629d8d1d406983e5f855dc
+  NMPopUpViewSwift: 23a44d6db17a9abc6b806f9fac597be6d7e9f300
   PageMenu: 703e82e173f54a4626ab88fcdca7703ee52e0cbe
   Parse: c09d6efe4b2eea752765bc6f365a55516d909079
 

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class GiftsChildTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var icon: UIImageView!
@@ -15,7 +14,8 @@ class GiftsChildTableViewController: UIViewController, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

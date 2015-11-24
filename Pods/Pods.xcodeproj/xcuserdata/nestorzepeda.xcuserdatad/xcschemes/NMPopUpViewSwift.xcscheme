@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A16119A7FDD7E05C04D2F7EB"
-               BuildableName = "HockeySDKResources.bundle"
-               BlueprintName = "HockeySDK-HockeySDKResources"
+               BlueprintIdentifier = "E7981B988F4A430F95764955"
+               BuildableName = "NMPopUpViewSwift.framework"
+               BlueprintName = "NMPopUpViewSwift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

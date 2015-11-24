@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class GiftsTableViewCell: UITableViewCell {
 
     @IBOutlet var iconImage: UIImageView!
@@ -23,5 +24,6 @@ class GiftsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
 
 }
