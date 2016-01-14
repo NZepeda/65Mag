@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '18A1796575FF5D5E7B095031'
-               BlueprintName = 'Bolts'
+               BlueprintIdentifier = 'C226702E9A58371B3EA3A1CD'
+               BlueprintName = 'MVCarouselCollectionView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Bolts.framework'>
+               BuildableName = 'MVCarouselCollectionView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

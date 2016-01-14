@@ -7,15 +7,23 @@
 //
 
 import UIKit
+import Parse
 
 class GiftsChildTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var offer_array = [PFObject]();
+    var business: PFObject!;
+    
 
     @IBOutlet var icon: UIImageView!
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        print(business.objectId);
+        getOffers();
+        print(offer_array);
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -37,18 +45,48 @@ class GiftsChildTableViewController: UIViewController, UITableViewDataSource, UI
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 4;
+        return offer_array.count;
     }
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("GiftCell", forIndexPath: indexPath) as! GiftsTableViewCell
-
+        
+        let offer:PFObject = offer_array[indexPath.row];
+        
         // Configure the cell...
-        cell.descriptionText.text = "Some cool offer";
-        cell.iconImage.image = UIImage(named: "giftIcon");
+        cell.descriptionText.text = offer["description"] as? String;
+        
+        if(offer["type"] as? String == "gift"){
+            cell.iconImage.image = UIImage(named: "giftIcon");
+        }
+        else{
+            cell.iconImage.image = UIImage(named: "discountIcon");
+        }
+        
+        
 
         return cell
+    }
+    
+    func getOffers(){
+        
+        let query = PFQuery(className: "Offers");
+        query.whereKey("business", equalTo: business.objectId!);
+        
+        print(query);
+        query.cachePolicy = PFCachePolicy.NetworkElseCache;
+        query.findObjectsInBackgroundWithBlock { (results:[PFObject]?, error: NSError?) -> Void in
+            if error == nil{
+                self.offer_array = results!;
+                print(self.offer_array);
+                self.tableView.reloadData();
+            }
+            else{
+                print(error);
+            }
+        }
+        
     }
     
 

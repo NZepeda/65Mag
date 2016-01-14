@@ -31,6 +31,7 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
     var business: PFObject!
     var distanceFromUser: String!
     var coordinates: PFGeoPoint!
+    var image_array = [UIImage]();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,11 +87,20 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
         
         //get image
         let imageData = business["image"] as! PFFile
+        
+        
+        //get other images
+        getOtherImages();
+        
         imageData.getDataInBackgroundWithBlock { (data, error) -> Void in
             
-        let image:UIImage = UIImage(data: data!)!
-        self.businessImage.image = image
+            let image:UIImage = UIImage(data: data!)!
+            self.image_array.append(image);
+            print("Image Array");
+            print(self.image_array)
+            self.businessImage.image = image
         }
+
         
         if let coordinatesFromParse = business["geoLocation"] as? PFGeoPoint{
             coordinates = coordinatesFromParse
@@ -98,6 +108,24 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
         else{
             takeMeThereButton.enabled = false
             takeMeThereButton.backgroundColor = UIColor.grayColor()
+        }
+        
+    }
+    
+    func getOtherImages(){
+        let query = PFQuery(className: "Images");
+        
+        query.whereKey("business", equalTo: business.objectId!);
+        query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error:NSError?) -> Void in
+            if error != nil{
+                print(error);
+            }
+            else{
+                let string = "Results count \(results!.count)";
+                print(string);
+                
+                //MAKE IMAGES INTO A COLLECTION VIEW
+            }
         }
         
     }
@@ -110,12 +138,19 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
         
         //segue
         let listToInfo = "InfoSegue"
+        let listToGifts = "giftsSegue"
         
         if segue.identifier == listToInfo{
           let infoChildVC = segue.destinationViewController as! InfoChildViewController
             infoChildVC.delegate = self
             infoChildVC.object = business
             infoChildVC.text = business["description"] as? String
+            
+        }
+        
+        else if segue.identifier == listToGifts{
+            let giftChildVC = segue.destinationViewController as! GiftsChildTableViewController;
+            giftChildVC.business = business;
             
         }
     }

@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MVCarouselCollectionView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>PageMenu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2C6D1DFAB3F9DCEEDF0EE937FAF182C6</key>
+		<key>21C461B0CAD90DE64B07A5D212C5F829</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>456AD5E28A376D558631B8E46701954D</key>
+		<key>708E01B006A9F88B3C13711562282B5E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5FAE5DAB2800FF48741065EB6DC8A637</key>
+		<key>71C1DF39EE1271EA1147F993CA1439A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EB810AF4D3715BC9BBF7475CC35B08DC</key>
+		<key>91FE4E3C2B90A6C6498F0F88505EB14A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F4FF7842D0D0D67B1556C71F4F928747</key>
+		<key>C9D4FC636433B837414659AA32997325</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DDDB540B3A49C0B851514CC8CE3C60CF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

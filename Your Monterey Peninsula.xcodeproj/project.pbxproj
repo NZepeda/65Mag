@@ -18,8 +18,8 @@
 		6B4E14A91B6956C700C4299C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B4E14A71B6956C700C4299C /* LaunchScreen.xib */; };
 		6B4E14B51B6956C800C4299C /* Your_Monterey_PeninsulaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4E14B41B6956C800C4299C /* Your_Monterey_PeninsulaTests.swift */; };
 		6B5430581B8D035300FECABF /* ParseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5430571B8D035300FECABF /* ParseFactory.swift */; };
-		6B5ADB251BAA04F5006D2CB9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB231BAA04F5006D2CB9 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
-		6B5ADB261BAA04F5006D2CB9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB241BAA04F5006D2CB9 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
+		6B5ADB251BAA04F5006D2CB9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB231BAA04F5006D2CB9 /* Bolts.framework */; };
+		6B5ADB261BAA04F5006D2CB9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB241BAA04F5006D2CB9 /* Parse.framework */; };
 		6B5ADB281BAA0576006D2CB9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB271BAA0576006D2CB9 /* AudioToolbox.framework */; };
 		6B5ADB2A1BAA0580006D2CB9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB291BAA0580006D2CB9 /* CFNetwork.framework */; };
 		6B5ADB2C1BAA0589006D2CB9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5ADB2B1BAA0589006D2CB9 /* CoreGraphics.framework */; };
@@ -35,12 +35,12 @@
 		6BA5943B1B890D4000BA348A /* BusinessListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5943A1B890D4000BA348A /* BusinessListCell.swift */; };
 		6BA5943E1B891FB000BA348A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5943D1B891FB000BA348A /* Data.swift */; };
 		6BD9DC201B754BB000BA1EC3 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9DC1F1B754BB000BA1EC3 /* Business.swift */; };
-		6BE350431BDA898500ED47C5 /* GiftsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE350421BDA898500ED47C5 /* GiftsTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		6BE350431BDA898500ED47C5 /* GiftsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE350421BDA898500ED47C5 /* GiftsTableViewCell.swift */; };
 		6BE3686E1B9CEDD800769FC3 /* BusinessInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE3686D1B9CEDD800769FC3 /* BusinessInfoViewController.swift */; };
 		6BEF0FDE1B98EE7300AD9FD3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEF0FDD1B98EE7300AD9FD3 /* CoreLocation.framework */; };
 		6BEF0FE01B98EE7D00AD9FD3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEF0FDF1B98EE7D00AD9FD3 /* MapKit.framework */; };
-		6BEF6BC01BD7ED71005CC48F /* GiftsChildTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEF6BBF1BD7ED71005CC48F /* GiftsChildTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8222E8B992837C9540E4088E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FF6C1D36958D0D89BC26B3 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		6BEF6BC01BD7ED71005CC48F /* GiftsChildTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEF6BBF1BD7ED71005CC48F /* GiftsChildTableViewController.swift */; };
+		8222E8B992837C9540E4088E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FF6C1D36958D0D89BC26B3 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,11 +140,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6B2764721C45E91500DB5358 /* InfoTab */ = {
+			isa = PBXGroup;
+			children = (
+				6B3CC1651BA0DF8E00061484 /* InfoChildViewController.swift */,
+			);
+			name = InfoTab;
+			sourceTree = "<group>";
+		};
 		6B3CC1671BA0DFA000061484 /* ChildControllers */ = {
 			isa = PBXGroup;
 			children = (
 				6BE350411BDA895800ED47C5 /* GiftsTab */,
-				6B3CC1651BA0DF8E00061484 /* InfoChildViewController.swift */,
+				6B2764721C45E91500DB5358 /* InfoTab */,
 			);
 			name = ChildControllers;
 			sourceTree = "<group>";
@@ -352,6 +360,7 @@
 				TargetAttributes = {
 					6B4E14961B6956C700C4299C = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = S3A4BSTJ8Y;
 					};
 					6B4E14AD1B6956C800C4299C = {
 						CreatedOnToolsVersion = 6.4;
@@ -595,6 +604,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -607,6 +618,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "self.com.zepedanestor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Your Monterey Peninsula-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				"TEST_HOST[sdk=*]" = "";
@@ -619,6 +631,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -631,6 +645,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "self.com.zepedanestor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Your Monterey Peninsula-Bridging-Header.h";
 			};
 			name = Release;

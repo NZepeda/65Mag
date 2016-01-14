@@ -56,8 +56,6 @@ class BusinessListTableViewController: UITableViewController, CLLocationManagerD
         imageData.getDataInBackgroundWithBlock { (data, error) -> Void in
             
             let image:UIImage = UIImage(data: data!)!
-//            let resizedImage = Toucan.Resize.resizeImage(image, size: CGSize(width: 320.0, height: 150.0), fitMode: Toucan.Resize.FitMode.Clip)
-            
             cell.businessImage.image = image
         }
 
@@ -127,6 +125,7 @@ class BusinessListTableViewController: UITableViewController, CLLocationManagerD
             
         }
     }
+    
     
     /* This function gets the coordinates of the restaurant based on the 
     address in the DB and updates the DB accordingly*/
