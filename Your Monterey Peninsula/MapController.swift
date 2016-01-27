@@ -12,7 +12,7 @@ import MapKit
 import CoreLocation
 import Parse
 
-class MapController: UIViewController, CLLocationManagerDelegate {
+class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var listView: UIScrollView!
@@ -49,9 +49,9 @@ class MapController: UIViewController, CLLocationManagerDelegate {
         let initialLocation = CLLocation(latitude: 36.552647, longitude: -121.9223235);
         self.centerMapOnLocation(initialLocation);
         self.mapView.showsUserLocation = true;
+        self.mapView.delegate = self;
         
-        displayInfo()
-        print(businessArray.count)
+        displayInfo();
     }
     
     
@@ -99,6 +99,39 @@ class MapController: UIViewController, CLLocationManagerDelegate {
             mapView.addAnnotation(annotation)
         }
 
+        
+    }
+    
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        
+        view.image = UIImage(named:"mapIconSelected");
+        
+    }
+    
+    func mapView(mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView) {
+        view.image = UIImage(named: "mapIconNormal");
+    }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        
+        if(annotation is MKUserLocation){
+            return nil;
+        }
+        else{
+            let reuseId = "pin";
+            var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+            
+            if pinView == nil {
+                pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId);
+                pinView?.canShowCallout = true;
+                pinView!.image = UIImage(named:"mapIconNormal")!
+            }
+            else {
+                pinView!.annotation = annotation;
+            }
+            return pinView;
+        }
         
     }
     
