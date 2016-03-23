@@ -22,15 +22,17 @@ class CategoriesTableViewController: UITableViewController, CLLocationManagerDel
        
     ];
     
-    let factory = ParseFactory()
-    
     var locationManager = CLLocationManager()
     var userLocation: CLLocation? = nil
     
     
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
+        let logoImage = UIImage(named:"65Logo");
+        let logoView = UIImageView(image: logoImage);
+        
+        self.navigationItem.titleView = logoView;
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest

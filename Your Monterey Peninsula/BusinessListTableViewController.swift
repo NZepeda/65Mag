@@ -10,10 +10,15 @@ class BusinessListTableViewController: UITableViewController, CLLocationManagerD
     var type_of_business_to_be_displayed: String = "" //This is the variable used to determine what type of business we will pull from parse
     var userLocation: CLLocation? = nil
     var loc: CLLocation? = nil
+    var imageData: PFFile? = nil;
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let logoImage = UIImage(named:"65Logo");
+        let logoView = UIImageView(image: logoImage);
+        
+        self.navigationItem.titleView = logoView;
         getBusinesses(type_of_business_to_be_displayed)
 
     }
@@ -52,12 +57,21 @@ class BusinessListTableViewController: UITableViewController, CLLocationManagerD
         /* DISTANCE ENDS HERE */
         
         //get image
-        let imageData = business_list_array[indexPath.row]["image"] as! PFFile
-        imageData.getDataInBackgroundWithBlock { (data, error) -> Void in
+        imageData = business_list_array[indexPath.row]["image"] as? PFFile
+        
+        if imageData != nil{
             
-            let image:UIImage = UIImage(data: data!)!
-            cell.businessImage.image = image
+            imageData!.getDataInBackgroundWithBlock { (data, error) -> Void in
+            
+                let image:UIImage = UIImage(data: data!)!
+                cell.businessImage.image = image
+            }
         }
+        else{
+            cell.businessImage.image = UIImage(named:"defaultbusiness.jpg");
+        }
+        
+
 
         return cell
     }
@@ -90,8 +104,6 @@ class BusinessListTableViewController: UITableViewController, CLLocationManagerD
             if let destination = segue.destinationViewController as? UINavigationController{
                 
                 if let targetController = destination.topViewController as? MapController{
-                    print("Got Called!")
-                    print(business_list_array.count)
                     targetController.businessArray = business_list_array
                 
                 }

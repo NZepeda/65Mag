@@ -6,11 +6,14 @@
 //  Copyright (c) 2015 NestorZepeda. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import Parse
 import Bolts
 import MapKit
 import HMSegmentedControl
+import AVKit
+import AVFoundation
 
 class BusinessInfoViewController: UIViewController, InfoChildViewControllerDelegate {
 
@@ -22,19 +25,33 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
     @IBOutlet var takeMeThereButton: UIButton!
     @IBOutlet var infoView: UIView!
     @IBOutlet var giftsView: UIView!
+    @IBOutlet var videoButton: UIButton!
     
     var control: HMSegmentedControl!
     
+    //video
+    var playerViewController = AVPlayerViewController();
+    var playerView = AVPlayer();
+    var trimmedBussiness:String!;
+//    var path: NSObject!;
+    var url:NSURL!;
     
     
-    
+    //objects
     var business: PFObject!
     var distanceFromUser: String!
     var coordinates: PFGeoPoint!
+    var imageData: PFFile?=nil;
     var image_array = [UIImage]();
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let logoImage = UIImage(named:"65Logo");
+        let logoView = UIImageView(image: logoImage);
+        
+        self.navigationItem.titleView = logoView;
+        
         segmentedControl.hidden = true
         infoView.hidden = false
         giftsView.hidden = true
@@ -71,9 +88,6 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
         
         view.addConstraint(bottomConstraint)
 
-    
-        //NSLayoutConstraint.activateConstraints([topConstraint, leftConstraint, rightConstraint, bottomConstraint])
-       
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,20 +100,24 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
         distance.text = distanceFromUser
         
         //get image
-        let imageData = business["image"] as! PFFile
+        imageData = business["image"] as? PFFile
+        
+        if imageData == nil{
+            self.businessImage.image = UIImage(named:"defaultbusiness.jpg");
+        }
+        else{
+            getOtherImages();
+        
+            imageData!.getDataInBackgroundWithBlock { (data, error) -> Void in
+            
+                let image:UIImage = UIImage(data: data!)!
+                self.image_array.append(image);
+                self.businessImage.image = image
+            }
+        }
         
         
         //get other images
-        getOtherImages();
-        
-        imageData.getDataInBackgroundWithBlock { (data, error) -> Void in
-            
-            let image:UIImage = UIImage(data: data!)!
-            self.image_array.append(image);
-            print("Image Array");
-            print(self.image_array)
-            self.businessImage.image = image
-        }
 
         
         if let coordinatesFromParse = business["geoLocation"] as? PFGeoPoint{
@@ -109,6 +127,22 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
             takeMeThereButton.enabled = false
             takeMeThereButton.backgroundColor = UIColor.grayColor()
         }
+        
+        
+        //SET UP VIDEO PLAYBACK HERE
+        trimmedBussiness = business["name"].stringByReplacingOccurrencesOfString(" ", withString: "");
+        trimmedBussiness = trimmedBussiness.lowercaseString;
+        
+        let path = NSBundle.mainBundle().pathForResource(trimmedBussiness, ofType: "mp4");
+        
+        if(path == nil){
+            print("The thing is nill!");
+            videoButton.hidden = true;
+        }
+        else{
+            url = NSURL.fileURLWithPath(path!);
+        }
+        
         
     }
     
@@ -121,9 +155,7 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
                 print(error);
             }
             else{
-                let string = "Results count \(results!.count)";
-                print(string);
-                
+                                
                 //MAKE IMAGES INTO A COLLECTION VIEW
             }
         }
@@ -186,6 +218,20 @@ class BusinessInfoViewController: UIViewController, InfoChildViewControllerDeleg
         default:
             break;
         }
+    }
+    
+    @IBAction func videoButtonPressed(sender: UIButton) {
+
+
+        playerView = AVPlayer(URL: url);
+        
+        playerViewController.player = playerView;
+        
+        self.presentViewController(playerViewController, animated: true){
+            self.playerViewController.player?.play();
+        }
+        
+        
     }
     
     // MARK: - Delegation

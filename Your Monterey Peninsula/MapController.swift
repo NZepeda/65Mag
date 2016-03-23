@@ -12,6 +12,7 @@ import MapKit
 import CoreLocation
 import Parse
 
+
 class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet var mapView: MKMapView!
@@ -19,12 +20,17 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     
     let regionRadius: CLLocationDistance = 1250;
     let manager = CLLocationManager();
-    var businessArray = [PFObject]()
-    var businesses = [Business]() // convert PFObjects into Business Objects
-    
+    var businessArray = [PFObject]();
+    var BusinessObject:PFObject?;
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let logoImage = UIImage(named:"65Logo");
+        let logoView = UIImageView(image: logoImage);
+        
+        self.navigationItem.titleView = logoView;
+        
         self.setupMap()
         
         //get user current location
@@ -84,27 +90,34 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     //Helper Methods
     func displayInfo(){
         
-        
+        //
         for business in businessArray{
             
-            print(business)
+            //get the position from the business object
             let position = business.objectForKey("geoLocation") as! PFGeoPoint
+            
+            //get pin coordinate
             let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(position.latitude, position.longitude)
             
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = location
-            annotation.title  = business.objectForKey("name") as? String
-            annotation.subtitle = business.objectForKey("address") as? String
+            //get title and subtitel
+            let title = business.objectForKey("name") as! String;
+            let subtitle = business.objectForKey("address") as! String;
             
-            mapView.addAnnotation(annotation)
+            let annotation = CustomPin(coordinate: location, title: title, subtitle: subtitle, business: business);
+
+            //set up the annotation
+            mapView.addAnnotation(annotation);
         }
 
         
     }
     
+    
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         
         view.image = UIImage(named:"mapIconSelected");
+        let pin = view.annotation as! CustomPin;
+        BusinessObject = pin.business;
         
     }
     
@@ -126,6 +139,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
                 pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId);
                 pinView?.canShowCallout = true;
                 pinView!.image = UIImage(named:"mapIconNormal")!
+                pinView!.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView;
             }
             else {
                 pinView!.annotation = annotation;
@@ -133,6 +147,20 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
             return pinView;
         }
         
+    }
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        //When info button is pressed on callout, perform segue with identifier to business page
+        if(control == view.rightCalloutAccessoryView){
+            performSegueWithIdentifier("MapToBusinessInfo", sender: self);
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "MapToBusinessInfo"){
+            let destinationController = segue.destinationViewController as! BusinessInfoViewController;
+            destinationController.business = BusinessObject;
+        }
     }
     
     
